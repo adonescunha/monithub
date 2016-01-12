@@ -19,3 +19,11 @@ gulp.task('watch', function() {
 
   gulp.watch('client/*', ['bundle'])
 });
+
+gulp.task('express', function() {
+  require('./serve');
+});
+
+gulp.task('serve', ['express']);
+
+gulp.task('default', ['serve', 'watch'])

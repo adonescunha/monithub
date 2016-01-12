@@ -2,9 +2,10 @@
   "name": "monithub",
   "version": "1.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "serve.js",
   "dependencies": {},
   "devDependencies": {
+    "express": "^4.13.3",
     "gulp-useref": "^3.0.4",
     "require-dir": "^0.3.0"
   },
