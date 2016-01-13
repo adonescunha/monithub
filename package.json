@@ -5,9 +5,19 @@
   "main": "serve.js",
   "dependencies": {},
   "devDependencies": {
+    "babel-core": "^6.0.14",
     "express": "^4.13.3",
     "gulp-useref": "^3.0.4",
+    "jasmine-core": "^2.4.1",
     "jspm": "^0.16.22",
+    "karma": "^0.13.19",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-junit-reporter": "^0.3.8",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "karma-systemjs": "^0.10.0",
+    "phantomjs": "^1.9.19",
+    "phantomjs-polyfill": "0.0.1",
     "require-dir": "^0.3.0"
   },
   "scripts": {
