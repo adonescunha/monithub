@@ -16,5 +16,17 @@
   <body class="skin-blue">
     <div class="wrapper">
     </div>
+
+    <!-- build:js js/bundle.js -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/systemjs/src/System.js"></script>
+    <script type="text/javascript" src="bower_components/traceur/traceur.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript">
+      traceur.options = { experimental: true };
+      new traceur.WebPageTranscoder(document.location.href).run();
+    </script>
+    <script type="module" src="app/bootstrap.js"></script>
   </body>
 </html>

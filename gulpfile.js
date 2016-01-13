@@ -6,6 +6,9 @@ var src = './layout/monithub/_site/css/*.css';
 gulp.task('copy', function() {
   gulp.src(src)
     .pipe(gulp.dest('./client/css'));
+
+  gulp.src('client/app/**/*')
+    .pipe(gulp.dest('./public/app'));
 });
 
 gulp.task('bundle', function() {
@@ -15,9 +18,7 @@ gulp.task('bundle', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(src, ['copy']);
-
-  gulp.watch('client/*', ['bundle'])
+  gulp.watch('client/**/*', ['copy', 'bundle'])
 });
 
 gulp.task('express', function() {
