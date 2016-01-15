@@ -18,7 +18,8 @@
     "karma-systemjs": "^0.10.0",
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "systemjs": "^0.19.16"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,11 +36,12 @@
   "homepage": "https://gitlab.com/adonescunha/monithub#README",
   "jspm": {
     "directories": {
-      "baseURL": "client"
+      "baseURL": "public"
     },
     "dependencies": {
       "almasaeed2010/AdminLTE": "github:almasaeed2010/AdminLTE@^2.3.2",
       "angular": "github:angular/bower-angular@^1.4.8",
+      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.8",
       "angular-route": "github:angular/bower-angular-route@^1.4.8",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "css": "github:systemjs/plugin-css@^0.1.20",

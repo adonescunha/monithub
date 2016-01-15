@@ -21,7 +21,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*.spec.js'
+      'test/**/*.spec.js'
     ],
 
 
@@ -49,7 +49,9 @@ module.exports = function(config) {
         'jspm_packages/npm/babel-core@5.8.34.js',
         'jspm_packages/npm/babel-core@5.8.34/**/*.js',
         'jspm_packages/github/angular/**/*.js',
+        'jspm_packages/github/systemjs/**/*.js',
         'app/**/*.js',
+        'app/**/*.html',
         'css/**/*.css',
       ],
     },
