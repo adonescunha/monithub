@@ -1,5 +1,8 @@
 var express = require('express');
+var mongoose = require('mongoose')
 var app = express();
+
+mongoose.connect(process.env.DATABASE || 'mongodb://localhost/monithub');
 
 var port = process.env.PORT || 8080;
 

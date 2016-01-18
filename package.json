@@ -6,9 +6,9 @@
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.0.14",
+    "chai": "^3.4.1",
     "express": "^4.13.3",
     "gulp-useref": "^3.0.4",
-    "jasmine-core": "^2.4.1",
     "jspm": "^0.16.22",
     "karma": "^0.13.19",
     "karma-coverage": "^0.5.3",
@@ -16,13 +16,17 @@
     "karma-junit-reporter": "^0.3.8",
     "karma-phantomjs-launcher": "^0.2.3",
     "karma-systemjs": "^0.10.0",
+    "mocha": "^2.3.4",
+    "mocha-mongoose": "^1.1.1",
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.6",
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
     "require-dir": "^0.3.0",
     "systemjs": "^0.19.16"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha spec --recursive"
   },
   "repository": {
     "type": "git",
