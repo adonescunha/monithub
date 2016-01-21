@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "serve.js",
-  "dependencies": {},
+  "dependencies": {
+    "monit": "^0.1.0"
+  },
   "devDependencies": {
     "babel-core": "^6.0.14",
     "bluebird": "^3.1.1",
