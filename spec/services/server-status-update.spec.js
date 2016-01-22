@@ -46,6 +46,38 @@ var RESPONSE_BODY = `
         <percenttotal>0.0</percenttotal>
       </cpu>
     </service>
+    <service type="3">
+      <name>memcached</name>
+      <collected_sec>1453479824</collected_sec>
+      <collected_usec>830084</collected_usec>
+      <status>0</status>
+      <status_hint>0</status_hint>
+      <monitor>1</monitor>
+      <monitormode>0</monitormode>
+      <pendingaction>0</pendingaction>
+      <pid>1060</pid>
+      <ppid>1</ppid>
+      <uptime>10876742</uptime>
+      <children>0</children>
+      <memory>
+        <percent>0.0</percent>
+        <percenttotal>0.0</percenttotal>
+        <kilobyte>5204</kilobyte>
+        <kilobytetotal>5204</kilobytetotal>
+      </memory>
+      <cpu>
+        <percent>0.0</percent>
+        <percenttotal>0.0</percenttotal>
+      </cpu>
+      <port>
+        <hostname>127.0.0.1</hostname>
+        <portnumber>11211</portnumber>
+        <request/>
+        <protocol>DEFAULT</protocol>
+        <type>TCP</type>
+        <responsetime>0.000</responsetime>
+      </port>
+    </service>
   </monit>
 `;
 
@@ -82,9 +114,14 @@ describe('ServerStatusUpdate', function() {
           return Service.find({server: server})
         })
         .then(function(services) {
-          var service = services[0];
-          service.statuses.length.should.equal(1);
-          service.statuses[0].collected_sec.should.equal(1453410411);
+          services.length.should.equal(2);
+          var nginxService = services[0];
+          var memcachedService = services[1];
+          nginxService.statuses.length.should.equal(1);
+          nginxService.statuses[0].collected_sec.should.equal(1453410411);
+          memcachedService.statuses.length.should.equal(1);
+          memcachedService.statuses[0].collected_sec.should.equal(1453479824);
+          memcachedService.type.should.equal(3);
           done();
         })
         .catch(function(err) {

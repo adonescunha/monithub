@@ -22,6 +22,13 @@ var StatusSchema = mongoose.Schema({
   cpu:           {
     percent:      {type: Number},
     percenttotal: {type: Number}
+  },
+  port: {
+    hostname: {type: String},
+    portnumber: {type: Number},
+    protocol: {type: String},
+    type: {type: String},
+    responsetime: {type: Number}
   }
 });
 
