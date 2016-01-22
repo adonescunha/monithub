@@ -3,10 +3,10 @@
 var mongoose     = require('mongoose');
 
 var StatusSchema = mongoose.Schema({
-  collectedsec:  {type: Number},
-  collectedusec: {type: Number},
+  collected_sec:  {type: Number},
+  collected_usec: {type: Number},
   status:        {type: Number},
-  statushint:    {type: Number},
+  status_hint:    {type: Number},
   monitor:       {type: Number},
   monitormode:   {type: Number},
   pid:           {type: Number},
@@ -25,9 +25,9 @@ var StatusSchema = mongoose.Schema({
   }
 });
 
-var Service = mongoose.model('services', ServiceSchema);
+var Status = mongoose.model('statuses', StatusSchema);
 
 module.exports = {
-  ServiceSchema: ServiceSchema,
-  Service: Service
+  StatusSchema: StatusSchema,
+  Status: Status
 };
