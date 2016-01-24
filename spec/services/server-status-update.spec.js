@@ -163,8 +163,8 @@ describe('ServerStatusUpdate', function() {
           var status = service.statuses[0];
           var memory = status.memory;
           var cpu = status.cpu;
-          var memoryNode = serviceNode.memory[0];
-          var cpuNode = serviceNode.cpu[0];
+          var memoryNode = serviceNode.memory;
+          var cpuNode = serviceNode.cpu;
 
           status.collected_sec.should.equal(
             parseInt(serviceNode.collected_sec));
@@ -187,17 +187,17 @@ describe('ServerStatusUpdate', function() {
           status.children.should.equal(
             parseInt(serviceNode.children));
           memory.percent.should.equal(
-            parseInt(memoryNode.percent[0]));
+            parseInt(memoryNode.percent));
           memory.percenttotal.should.equal(
-            parseInt(memoryNode.percenttotal[0]));
+            parseInt(memoryNode.percenttotal));
           memory.kilobyte.should.equal(
-            parseInt(memoryNode.kilobyte[0]));
+            parseInt(memoryNode.kilobyte));
           memory.kilobytetotal.should.equal(
-            parseInt(memoryNode.kilobytetotal[0]));
+            parseInt(memoryNode.kilobytetotal));
           cpu.percent.should.equal(
-            parseInt(cpuNode.percent[0]));
+            parseInt(cpuNode.percent));
           cpu.percenttotal.should.equal(
-            parseInt(cpuNode.percenttotal[0]));
+            parseInt(cpuNode.percenttotal));
 
           done();
         })
