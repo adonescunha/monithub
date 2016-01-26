@@ -18,10 +18,19 @@
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
-      <li class="active">
+      <li class="treeview">
         <a href="#">
-          <i class="fa fa-server"></i> <span>Hosts</span>
+          <i class="fa fa-dashboard"></i>
+          <span>Servers</span>
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
+        <ul class="treeview-menu">
+          <li>
+            <a ui-sref="app.servers.new">
+              <i class="fa fa-circle-o"></i> Add
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </section>

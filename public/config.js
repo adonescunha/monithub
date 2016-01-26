@@ -15,21 +15,22 @@ System.config({
 
   map: {
     "almasaeed2010/AdminLTE": "github:almasaeed2010/AdminLTE@2.3.2",
-    "angular": "github:angular/bower-angular@1.4.8",
+    "angular": "github:angular/bower-angular@1.4.9",
     "angular-mocks": "github:angular/bower-angular-mocks@1.4.8",
-    "angular-route": "github:angular/bower-angular-route@1.4.8",
+    "angular-ui-router": "github:angular-ui/ui-router@0.2.17",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",
     "font-awesome": "npm:font-awesome@4.5.0",
+    "jquery": "npm:jquery@2.2.0",
     "text": "github:systemjs/plugin-text@0.0.4",
-    "github:angular/bower-angular-mocks@1.4.8": {
-      "angular": "github:angular/bower-angular@1.4.8"
+    "github:angular-ui/ui-router@0.2.17": {
+      "angular": "github:angular/bower-angular@1.4.9"
     },
-    "github:angular/bower-angular-route@1.4.8": {
-      "angular": "github:angular/bower-angular@1.4.8"
+    "github:angular/bower-angular-mocks@1.4.8": {
+      "angular": "github:angular/bower-angular@1.4.9"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

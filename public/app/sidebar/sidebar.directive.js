@@ -1,4 +1,5 @@
-import template from './sidebar.html!text';
+import template from './sidebar.template.html!text';
+import SidebarCtrl from './sidebar.ctrl';
 
 function directive() {
   return {
@@ -7,7 +8,8 @@ function directive() {
     scope: true,
     template: template,
     bindToController: true,
-    controllerAs: "ctrl"
+    controllerAs: "ctrl",
+    controller: SidebarCtrl
   }
 };
 

@@ -19,6 +19,7 @@ describe('POST /servers', function() {
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .then(function(res) {
+          res.status.should.equal(200);
           Server.find({})
             .then(function(servers) {
               var server = servers[0];
@@ -49,6 +50,7 @@ describe('POST /servers', function() {
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .then(function(res) {
+          res.status.should.equal(400);
           Server.find({})
             .then(function(servers) {
               servers.length.should.equal(0);
