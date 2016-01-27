@@ -93,18 +93,16 @@ describe('GET /servers', function() {
           return Server.find({});
         })
         .then(function(servers) {
-          request(app)
-            .get('/servers')
-            .then(function(res) {
-              res.body.length.should.equal(2);
-              done();
-            });
+          return request(app)
+            .get('/servers');
+        })
+        .then(function(res) {
+          res.body.length.should.equal(2);
+          done();
         })
         .catch(function(err) {
           done(err);
         })
     });
-
-    it('')
   });
 });
