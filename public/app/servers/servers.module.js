@@ -1,8 +1,10 @@
 import template from './servers.template.html!text';
+import ServerService from './servers.service';
 import NewModule from './new/new.module';
 
 export default angular
   .module('app.servers', [NewModule.name])
+  .service(ServerService.name, ['$http', ServerService])
   .config(['$stateProvider', function($stateProvider) {
     $stateProvider
       .state('app.servers', {
@@ -10,4 +12,4 @@ export default angular
         abstract: true,
         template: template
       });
-  }]);
+  }])

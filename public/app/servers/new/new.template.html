@@ -1,28 +1,32 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="box">
-      <form role="form">
+      <form role="form" ng-submit="ctrl.createServer()">
         <div class="box-body">
           <div class="form-group">
-            <label for="exampleInputEmail1">Hostname</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="monit.myapp.com">
+            <label for="hostname-input">Hostname</label>
+            <input type="text" class="form-control" id="hostname-input"
+                   placeholder="monit.myapp.com" ng-model="ctrl.server.hostname" />
           </div>
           <div class="form-group">
-            <label for="exampleInputPort1">Port number</label>
-            <input type="text" class="form-control" id="exampleInputPort1" placeholder="2812">
+            <label for="port-input">Port number</label>
+            <input type="text" class="form-control" id="port-input"
+                   placeholder="2812" ng-model="ctrl.server.port" />
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> SSL
+              <input type="checkbox" ng-model="ctrl.server.ssl"> SSL
             </label>
           </div>
           <div class="form-group">
-            <label for="exampleInputUsername1">Username</label>
-            <input type="text" class="form-control" id="exampleInputUsername1">
+            <label for="username-input">Username</label>
+            <input type="text" class="form-control" id="username-input"
+                   ng-model="ctrl.server.username" />
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="password-input">Password</label>
+            <input type="password" class="form-control" id="password-input"
+                   placeholder="Password" ng-model="ctrl.server.password" />
           </div>
         </div>
         <div class="box-footer">

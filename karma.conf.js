@@ -46,10 +46,8 @@ module.exports = function(config) {
       },
 
       serveFiles: [
-        'jspm_packages/npm/babel-core@5.8.34.js',
-        'jspm_packages/npm/babel-core@5.8.34/**/*.js',
-        'jspm_packages/github/angular/**/*.js',
-        'jspm_packages/github/systemjs/**/*.js',
+        'jspm_packages/**/*.js',
+        'jspm_packages/**/*.css',
         'app/**/*.js',
         'app/**/*.html',
         'css/**/*.css',
