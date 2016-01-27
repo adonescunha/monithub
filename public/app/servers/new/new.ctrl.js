@@ -15,7 +15,13 @@ class NewServerCtrl {
       .create(this.server)
       .then(() => {
         self.init();
+      }, () => {
+        self.logError();
       });
+  }
+
+  logError() {
+    console.log('ERROR');
   }
 }
 

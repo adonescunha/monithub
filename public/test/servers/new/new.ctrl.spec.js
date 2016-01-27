@@ -15,15 +15,38 @@ describe('NewServerCtrl', () => {
       controller = $controller('NewServerCtrl', {
         ServerService: serverService
       });
-      spyOn(serverService, 'create').and.callThrough();
+      spyOn(controller, 'init').and.callThrough();
     });
   });
 
   describe('createServer', () => {
-    it('should create a server', () => {
-      http.expectPOST('/services');
-      controller.createServer();
-      expect(serverService.create).toHaveBeenCalled();
+    describe('when valid', () => {
+      beforeEach(() => {
+        spyOn(serverService, 'create').and.callFake(() => {
+          return {
+            then: (callback) => {
+              return callback();
+            }
+          }
+        });
+      });
+
+      it('should create a server', () => {
+        controller.createServer();
+        expect(serverService.create).toHaveBeenCalled();
+        expect(controller.init).toHaveBeenCalled();
+      });
+    });
+
+    describe('when invalid', () => {
+      it('should log erro', () => {
+        spyOn(controller, 'logError');
+        http.expectPOST('/services').respond(400);
+        controller.createServer();
+        http.flush();
+        expect(controller.init).not.toHaveBeenCalled();
+        expect(controller.logError).toHaveBeenCalled();
+      });
     });
   });
 });
