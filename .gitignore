@@ -2,3 +2,4 @@ public/bower_components/
 public/jspm_packages/
 node_modules
 npm-debug.log
+coverage
