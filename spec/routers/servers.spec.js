@@ -1,4 +1,5 @@
 require('../spec_helper')
+
 var request = require('supertest-as-promised')
   , app     = require('../../serve')
   , Server  = require('../../app/models/server').Server;
@@ -47,8 +48,6 @@ describe('POST /servers', function() {
         .post('/servers')
         .type('json')
         .send(requestBody)
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
         .then(function(res) {
           res.status.should.equal(400);
           Server.find({})
@@ -63,4 +62,49 @@ describe('POST /servers', function() {
         })
     });
   })
+});
+
+describe('GET /servers', function() {
+  describe('when no server is saved', function() {
+    it('responds an empty array', function(done) {
+      request(app)
+        .get('/servers')
+        .then(function(res) {
+          res.body.length.should.equal(0);
+          done();
+        })
+        .catch(function(err) {
+          done(err);
+        });
+    });
+  });
+
+  describe('when some servers are saved', function() {
+    it('returns an array of servers', function(done) {
+      Server.create({
+        hostname: 'host1.myapp.com'
+      })
+        .then(function(server) {
+          return Server.create({
+            hostname: 'host2.myapp.com'
+          })
+        })
+        .then(function(server) {
+          return Server.find({});
+        })
+        .then(function(servers) {
+          request(app)
+            .get('/servers')
+            .then(function(res) {
+              res.body.length.should.equal(2);
+              done();
+            });
+        })
+        .catch(function(err) {
+          done(err);
+        })
+    });
+
+    it('')
+  });
 });

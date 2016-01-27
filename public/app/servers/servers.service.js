@@ -1,8 +1,7 @@
 class ServerService {
 
-  constructor($http, $q) {
+  constructor($http) {
     this.$http = $http;
-    this.$q = $q;
   }
 
   create(data) {
@@ -10,15 +9,11 @@ class ServerService {
 
     return this.$http.post('/services', data)
       .then((response) => {
-        if (response.status == 200) {
-          return response.data;
-        } else {
-          return self.$q.reject(response.data);
-        }
+        return response.data;
       });
   }
 };
 
-ServerService.$inject = ['$http', '$q'];
+ServerService.$inject = ['$http'];
 
 export default ServerService;

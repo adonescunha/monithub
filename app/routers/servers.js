@@ -18,4 +18,14 @@ router.post('', function(req, res) {
     })
 });
 
+router.get('', function(req, res) {
+  Server.find({})
+    .then(function(servers) {
+      return res.status(200).json(servers);
+    })
+    .catch(function(err) {
+      throw err;
+    });
+});
+
 module.exports = router;

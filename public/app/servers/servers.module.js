@@ -4,7 +4,7 @@ import NewModule from './new/new.module';
 
 export default angular
   .module('app.servers', [NewModule.name])
-  .service(ServerService.name, ['$http', '$q', ServerService])
+  .service(ServerService.name, ['$http', ServerService])
   .config(['$stateProvider', function($stateProvider) {
     $stateProvider
       .state('app.servers', {
