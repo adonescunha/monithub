@@ -5,6 +5,7 @@ import ServersModule from './servers/servers.module';
 
 export default angular.module('app', [
   'ui.router',
+  'angular.snackbar',
   SidebarModule.name,
   ServersModule.name,
 ])

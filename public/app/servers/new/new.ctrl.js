@@ -1,6 +1,8 @@
 class NewServerCtrl {
 
-  constructor(ServerService) {
+  constructor($state, snackbar, ServerService) {
+    this.$state = $state;
+    this.snackbar = snackbar;
     this.ServerService = ServerService;
     this.init();
   }
@@ -10,11 +12,13 @@ class NewServerCtrl {
   }
 
   createServer() {
-    var self = this;
+    let self = this;
     this.ServerService
       .create(this.server)
       .then(() => {
         self.init();
+        self.snackbar.create('Server successfully added.', 5000);
+        self.$state.go('app.servers.list');
       }, () => {
         self.logError();
       });
@@ -25,6 +29,6 @@ class NewServerCtrl {
   }
 }
 
-NewServerCtrl.$inject = ['ServerService'];
+NewServerCtrl.$inject = ['$state', 'snackbar', 'ServerService'];
 
 export default NewServerCtrl;

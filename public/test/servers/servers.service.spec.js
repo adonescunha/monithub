@@ -19,7 +19,7 @@ describe('ServerService', () => {
     describe('when response status is 200', () => {
       beforeEach(() => {
         expected = 'OK';
-        http.expectPOST('/services').respond(200, expected);
+        http.expectPOST('/servers').respond(200, expected);
       });
 
       it('returns response data', (done) => {
@@ -38,7 +38,7 @@ describe('ServerService', () => {
     describe('when response status is not 200', () => {
       beforeEach(() => {
         expected = 'ERROR';
-        http.expectPOST('/services').respond(400, expected);
+        http.expectPOST('/servers').respond(400, expected);
       });
 
       it('rejects response data', (done) => {

@@ -7,7 +7,7 @@ class ServerService {
   create(data) {
     let self = this;
 
-    return this.$http.post('/services', data)
+    return this.$http.post('/servers', data)
       .then((response) => {
         return response.data;
       });

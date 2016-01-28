@@ -23,6 +23,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",
+    "eu81273/angular.snackbar": "github:eu81273/angular.snackbar@master",
     "font-awesome": "npm:font-awesome@4.5.0",
     "jquery": "npm:jquery@2.2.0",
     "text": "github:systemjs/plugin-text@0.0.4",
