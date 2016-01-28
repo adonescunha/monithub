@@ -4,6 +4,15 @@ class ServerService {
     this.$http = $http;
   }
 
+  list() {
+    let self = this;
+
+    return this.$http.get('/servers')
+      .then((response) => {
+        return response.data;
+      });
+  }
+
   create(data) {
     let self = this;
 

@@ -6,7 +6,13 @@ class ListServersCtrl {
   }
 
   init() {
+    let self = this;
     this.servers = [];
+
+    this.ServerService.list()
+      .then((servers) => {
+        self.servers = servers;
+      });
   }
 }
 

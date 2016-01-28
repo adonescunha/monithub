@@ -13,6 +13,24 @@ describe('ServerService', () => {
     });
   });
 
+  describe('list', () => {
+    beforeEach(() => {
+      http.expectGET('/servers').respond(200, [1, 2]);
+    });
+
+    it('returns response data', (done) => {
+      serverService.list()
+        .then((actual) => {
+          expect(actual.length).toEqual(2);
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+      http.flush();
+    });
+  });
+
   describe('create', () => {
     let expected;
 
