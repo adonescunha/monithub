@@ -17,8 +17,8 @@ class NewServerCtrl {
       .create(this.server)
       .then(() => {
         self.init();
-        self.snackbar.create('Server successfully added.', 5000);
         self.$state.go('app.servers.list');
+        self.snackbar.create('Server successfully added.', 5000);
       }, () => {
         self.logError();
       });

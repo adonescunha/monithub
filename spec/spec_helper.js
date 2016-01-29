@@ -4,8 +4,6 @@ var config   = require('../config')
   , clearDB  = require('mocha-mongoose')(config.db)
   , app      = require('../serve');
 
-mongoose.Promise = require('bluebird').Promise;
-
 beforeEach(function(done) {
   if (mongoose.connection.db) return done();
 

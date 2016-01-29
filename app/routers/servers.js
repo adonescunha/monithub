@@ -15,7 +15,7 @@ router.post('', function(req, res) {
       }
 
       throw err;
-    })
+    });
 });
 
 router.get('', function(req, res) {

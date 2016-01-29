@@ -1,12 +1,21 @@
-<div class="row">
-  <div class="pad margin no-print" ng-if="ctrl.servers.length == 0">
+<div class="row" ng-if="ctrl.servers.length == 0">
+  <div class="pad margin no-print">
     <div class="callout callout-info">
       <h4><i class="fa fa-info"></i> Note:</h4>
       No servers registered.
     </div>
   </div>
-  <div class="col-xs-12" ng-if="ctrl.servers.length > 0">
-    <div class="box">
+</div>
+<div class="row" ng-repeat="server in ctrl.servers">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green">
+        <i class="fa fa-check"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-text">{{ server.hostname}}</span>
+        <span class="info-box-number">23</span>
+      </div>
     </div>
   </div>
 </div>

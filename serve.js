@@ -4,6 +4,7 @@ var config = require('./config')
   , bodyParser = require('body-parser')
   , app = express();
 
+mongoose.Promise = require('bluebird').Promise;
 mongoose.connect(config.db);
 
 var port = process.env.PORT || 8080;
