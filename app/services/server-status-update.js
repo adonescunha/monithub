@@ -36,6 +36,9 @@ ServerStatusUpdate.prototype.perform = function() {
           });
         });
       })
+    .then(function() {
+      return self.server.updateStatus();
+    })
     .catch(function(err) {
       throw err;
     });

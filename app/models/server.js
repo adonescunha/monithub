@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Service  = require('./service').Service;
 
 var ServerSchema = mongoose.Schema({
     hostname:   {type: String, required: true, unique: true},
@@ -6,9 +7,35 @@ var ServerSchema = mongoose.Schema({
     username:   {type: String},
     password:   {type: String},
     ssl:        {type: Boolean, default: false},
+    status:     {type: Number, default: 1, enum: [1, 2, 3]},
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date}
 });
+
+ServerSchema.methods.updateStatus = function() {
+  var self = this;
+  return Service.find({
+    server: this
+  })
+    .then(function(services) {
+      var status = 0;
+
+      for (var i = 0; i < services.length; i++) {
+        var service = services[i];
+        var newStatus = service.statuses[0].status;
+
+        if (newStatus > status) {
+          status = service.statuses[0].status;
+        }
+      }
+
+      self.status = status;
+      return self.save();
+    })
+    .catch(function(err) {
+      throw err;
+    });
+};
 
 var Server = mongoose.model('servers', ServerSchema);
 
