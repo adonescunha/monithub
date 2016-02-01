@@ -2,6 +2,8 @@ import './vendor'
 
 import SidebarModule from './sidebar/sidebar.module';
 import ServersModule from './servers/servers.module';
+import Socket from './socket';
+import Wait from './wait';
 
 export default angular.module('app', [
   'ui.router',
@@ -9,10 +11,12 @@ export default angular.module('app', [
   SidebarModule.name,
   ServersModule.name,
 ])
-.config(['$stateProvider', function($stateProvider) {
-  $stateProvider
-    .state('app', {
-      abstract: true,
-      template: '<div ui-view></div>'
-    });
-}]);
+  .config(['$stateProvider', function($stateProvider) {
+    $stateProvider
+      .state('app', {
+        abstract: true,
+        template: '<div ui-view></div>'
+      });
+  }])
+  .service(Socket.name, Socket)
+  .service(Wait.name, Wait);

@@ -26,6 +26,7 @@ System.config({
     "eu81273/angular.snackbar": "github:eu81273/angular.snackbar@master",
     "font-awesome": "npm:font-awesome@4.5.0",
     "jquery": "npm:jquery@2.2.0",
+    "socketio/socket.io-client": "github:socketio/socket.io-client@1.4.5",
     "text": "github:systemjs/plugin-text@0.0.4",
     "github:angular-ui/ui-router@0.2.17": {
       "angular": "github:angular/bower-angular@1.4.9"

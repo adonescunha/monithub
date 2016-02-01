@@ -5,5 +5,7 @@ if (process.env.NODE_ENV == 'test') {
 }
 
 module.exports = {
-  db: db
+  db: db,
+  port: process.env.PORT || 8080,
+  kuePort: process.env.KUE_PORT || 8081
 };

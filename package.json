@@ -5,8 +5,10 @@
   "main": "serve.js",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "kue": "^0.10.5",
     "lodash": "^4.0.0",
-    "monit": "^0.1.2"
+    "monit": "^0.1.2",
+    "socket.io": "^1.4.5"
   },
   "devDependencies": {
     "babel-core": "^6.0.14",
@@ -61,6 +63,7 @@
       "eu81273/angular.snackbar": "github:eu81273/angular.snackbar@master",
       "font-awesome": "npm:font-awesome@^4.5.0",
       "jquery": "npm:jquery@^2.2.0",
+      "socketio/socket.io-client": "github:socketio/socket.io-client@^1.4.5",
       "text": "github:systemjs/plugin-text@^0.0.4"
     },
     "devDependencies": {

@@ -2,25 +2,32 @@ var config = require('./config')
   , express = require('express')
   , mongoose = require('mongoose')
   , bodyParser = require('body-parser')
-  , app = express();
+  , kue = require('kue')
+  , app = express()
+  , http = require('http').createServer(app)
+  , io = require('socket.io').listen(http);
+
+require('./app/jobs/wait')(io);
 
 mongoose.Promise = require('bluebird').Promise;
 mongoose.connect(config.db);
 
-var port = process.env.PORT || 8080;
+var port = config.port;
+var kuePort = config.kuePort;
 
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.use('/servers', require('./app/routers/servers'));
+app.use('/wait', require('./app/routers/wait')(io));
+
+http.listen(port, function () {
+  console.log('MonitHub app listening on port ' + port + '!');
 });
 
-app.use('/servers', require('./app/routers/servers'));
-
-app.listen(port, function () {
-  console.log('MonitHub app listening on port ' + port + '!');
+kue.app.listen(kuePort, function() {
+  console.log('Kue app listening on port ' + kuePort + '!');
 });
 
 exports = module.exports = app;

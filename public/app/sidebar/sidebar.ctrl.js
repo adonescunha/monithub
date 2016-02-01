@@ -1,11 +1,11 @@
 class SidebarCtrl {
-  constructor($scope) {
+  constructor($scope, Wait) {
     $scope.$evalAsync(function() {
       $.AdminLTE.tree('.sidebar');
     });
   }
 }
 
-SidebarCtrl.$inject = ['$scope'];
+SidebarCtrl.$inject = ['$scope', 'Wait'];
 
 export default SidebarCtrl;
