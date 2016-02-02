@@ -1,4 +1,4 @@
-require('../spec_helper')
+require('../spec_helper');
 
 var request = require('supertest-as-promised')
   , app     = require('../../serve')

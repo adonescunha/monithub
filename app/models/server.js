@@ -1,5 +1,7 @@
-var mongoose = require('mongoose');
-var Service  = require('./service').Service;
+var mongoose = require('mongoose')
+  , service = require('./service')
+  , Service  = service.Service
+  , ServiceSchema  = service.ServiceSchema;
 
 var ServerSchema = mongoose.Schema({
     hostname:   {type: String, required: true, unique: true},
@@ -8,6 +10,7 @@ var ServerSchema = mongoose.Schema({
     password:   {type: String},
     ssl:        {type: Boolean, default: false},
     status:     {type: Number, default: 1, enum: [1, 2, 3]},
+    services_count: {type: Number, default: 0},
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date}
 });
