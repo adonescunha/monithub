@@ -6,6 +6,6 @@ class SidebarCtrl {
   }
 }
 
-SidebarCtrl.$inject = ['$scope', 'Wait'];
+SidebarCtrl.$inject = ['$scope'];
 
 export default SidebarCtrl;

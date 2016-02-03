@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - node
+  - io.js
+  - 5.5
+  - 4.2
+  - 4.1
+  - 0.12
+  - 0.10
+sudo: false
+
+script: "npm test && karma start --single-run"
+
+after_script: "npm run coverage && cat ./coverage/lcov.info | coveralls"

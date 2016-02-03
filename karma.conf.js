@@ -63,12 +63,15 @@ module.exports = function(config) {
     },
 
     coverageReporter: {
-      type : 'lcov',
       dir : '../coverage/',
       instrumenters: { isparta : require('isparta') },
       instrumenter: {
         '**/*.js': 'isparta'
-      }
+      },
+      reporters: [
+        { type: 'lcov' },
+        { type: 'json', subdir: '.', file: 'coverage-karma.json' }
+      ]
     },
 
 
