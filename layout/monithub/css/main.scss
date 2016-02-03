@@ -28,6 +28,11 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
+$default-color: #d2d6de;
+$success-color: #00a65a;
+$danger-color: #dd4b39;
+$warning-color: #f39c12;
+
 
 
 // Use media queries like this:
@@ -41,6 +46,32 @@ $on-laptop:        800px;
     @media screen and (max-width: $device) {
         @content;
     }
+}
+
+.box.server-detail {
+  border-left: solid 6px;
+  border-top: none;
+
+  &.box-default {
+    border-color: $default-color;
+  }
+
+  &.box-success {
+    border-color: $success-color;
+  }
+
+  &.box-danger {
+    border-color: $danger-color;
+  }
+
+  &.box-warning {
+    border-color: $warning-color;
+  }
+}
+
+.table.services-table {
+  background-color: $background-color;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
 
 

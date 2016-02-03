@@ -9,9 +9,94 @@ layout: default
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#"><i class="fa fa-servers"></i> Servers</a></li>
-    <li class="active">myapp.monit.com</li>
+    <li class="active">monit.myapp.com</li>
   </ol>
 </section>
 <section class="content">
-
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-success server-detail">
+        <div class="box-header">
+          <h3 class="box-title">monit.myapp.com</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool"
+                    data-widget="collapse">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body">
+          <p class="lead">
+            running on myapp-host for 1 day, 8 hours and 42 minutes
+          </p>
+          <div class="row">
+            <div class="col-lg-8 col-xs-12">
+              <dl>
+                <dt>Last update</dt>
+                <dd>
+                  <i class="fa fa-clock-o"></i>
+                  30 sec
+                </dd>
+                <dt>Poll</dt>
+                <dd>
+                  120 sec
+                </dd>
+              </dl>
+            </div>
+            <div class="col-lg-4 col-xs-12">
+              <div class="progress-group">
+                <span class="progress-text">Load</span>
+                <span class="progress-number">[0.28] [0.34] [0.37]</span>
+              </div>
+              <div class="progress-group">
+                <span class="progress-text">CPU</span>
+                <span class="progress-number">2.4%us, 0.7%sy, 0.0%wa</span>
+              </div>
+              <div class="progress-group">
+                <span class="progress-text">Memory</span>
+                <span class="progress-number">61.2% [10071956 kB]</span>
+              </div>
+              <div class="progress-group">
+                <span class="progress-text">Swap</span>
+                <span class="progress-number">0.0% [0 kB]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <table class="table table-hover services-table">
+        <tr>
+          <th></th>
+          <th>Process</th>
+          <th>Uptime</th>
+          <th>CPU Total</th>
+          <th style="text-align: right">Memory Total</th>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa fa-circle-o text-green"></i>
+          </td>
+          <td>
+            <a href="www.ruedaerueda.adv.br">www.ruedaerueda.adv.br</a>
+          </td>
+          <td>1d&nbsp;8h&nbsp;54m&nbsp;</td>
+          <td>0.0%</td>
+          <td style="text-align: right">26.9% [4423880&nbsp;kB]</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa fa-circle-o text-red"></i>
+          </td>
+          <td>
+            <a href="www.ruedaerueda.adv.br">nginx</a>
+          </td>
+          <td>18h&nbsp;30m&nbsp;</td>
+          <td>0.0%</td>
+          <td style="text-align: right">0.0% [13860&nbsp;kB]</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </section>
