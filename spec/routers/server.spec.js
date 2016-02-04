@@ -1,3 +1,6 @@
+/* jshint node: true */
+'use strict';
+
 require('../spec_helper');
 
 var request = require('supertest-as-promised')

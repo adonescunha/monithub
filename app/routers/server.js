@@ -1,4 +1,5 @@
-'use strict'
+/* jshint node: true */
+'use strict';
 
 var express = require('express')
   , router = express.Router()

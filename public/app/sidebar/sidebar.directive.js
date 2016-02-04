@@ -10,8 +10,8 @@ function directive() {
     bindToController: true,
     controllerAs: "ctrl",
     controller: SidebarCtrl
-  }
-};
+  };
+}
 
 directive.$inject = [];
 

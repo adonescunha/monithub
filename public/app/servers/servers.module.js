@@ -16,4 +16,4 @@ export default angular
         abstract: true,
         template: template
       });
-  }])
+  }]);

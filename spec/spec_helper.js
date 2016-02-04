@@ -1,3 +1,6 @@
+/* jshint node: true */
+'use strict';
+
 var config   = require('../config')
   , should   = require('chai').should()
   , mongoose = require('mongoose')

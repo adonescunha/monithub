@@ -1,4 +1,4 @@
-import './vendor'
+import './vendor';
 
 import SidebarModule from './sidebar/sidebar.module';
 import ServersModule from './servers/servers.module';

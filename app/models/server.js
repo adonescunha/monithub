@@ -1,3 +1,6 @@
+/* jshint node: true */
+'use strict';
+
 var mongoose = require('mongoose')
   , service = require('./service')
   , Service  = service.Service

@@ -1,3 +1,6 @@
+/* jshint node: true */
+'use strict';
+
 require('../spec_helper');
 var nock    = require('nock');
 var Server  = require('../../app/models/server').Server;
@@ -111,7 +114,7 @@ describe('ServerStatusUpdate', function() {
           return serverStatusUpdate.perform();
         })
         .then(function() {
-          return Service.find({server: server})
+          return Service.find({server: server});
         })
         .then(function(services) {
           services.length.should.equal(2);
@@ -134,7 +137,8 @@ describe('ServerStatusUpdate', function() {
     it('creates a status based on the service xml node', function(done) {
       var serverStatusUpdate
         , service
-        , serviceNode;
+        , serviceNode
+        , client;
 
       Server.create({
         hostname: hostname
@@ -145,7 +149,7 @@ describe('ServerStatusUpdate', function() {
             server: server,
             name: 'nginx',
             type: 3
-          })
+          });
         })
         .then(function(newService) {
           service = newService;

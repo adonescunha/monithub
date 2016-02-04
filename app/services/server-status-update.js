@@ -1,4 +1,5 @@
-'use strict'
+/* jshint node: true */
+'use strict';
 
 var Promise = require('bluebird').Promise;
 var Client  = require('monit').Client;
@@ -29,7 +30,7 @@ ServerStatusUpdate.prototype.perform = function() {
               })
                 .then(function(service) {
                   self.createServiceStatus(service, serviceNode);
-                })
+                });
             } else {
               self.createServiceStatus(service, serviceNode);
             }

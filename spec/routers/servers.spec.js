@@ -1,3 +1,6 @@
+/* jshint node: true */
+'use strict';
+
 require('../spec_helper');
 
 var request = require('supertest-as-promised')
@@ -53,15 +56,15 @@ describe('POST /servers', function() {
           Server.find({})
             .then(function(servers) {
               servers.length.should.equal(0);
-              res.body.hostname.should.not.be.undefined;
+              res.body.hostname.should.not.equal(undefined);
               done();
             });
         })
         .catch(function(err) {
           done(err);
-        })
+        });
     });
-  })
+  });
 });
 
 describe('GET /servers', function() {

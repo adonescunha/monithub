@@ -21,7 +21,7 @@ class ServerService {
         return response.data;
       });
   }
-};
+}
 
 ServerService.$inject = ['$http'];
 

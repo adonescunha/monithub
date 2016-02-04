@@ -7,7 +7,7 @@ export default class Wait {
   }
 
   init() {
-    let self = this
+    let self = this;
 
     this.Socket.on('finished', (data) => {
       console.log(data.message);

@@ -1,0 +1,10 @@
+{
+  "laxcomma": true,
+  "globals": {
+    "require": false,
+    "module": false,
+    "describe": false,
+    "beforeEach": false,
+    "it": false
+  }
+}

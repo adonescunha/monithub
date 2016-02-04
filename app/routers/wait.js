@@ -1,4 +1,5 @@
-'use strict'
+/* jshint node: true */
+'use strict';
 
 var kue = require('kue')
   , queue = kue.createQueue();

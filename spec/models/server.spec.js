@@ -1,3 +1,6 @@
+/* jshint node: true */
+'use strict';
+
 require('../spec_helper');
 
 var Server = require('../../app/models/server').Server
