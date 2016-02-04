@@ -40,7 +40,8 @@
     "systemjs": "^0.19.16"
   },
   "scripts": {
-    "test": "istanbul cover -x '**/spec/**' _mocha spec/**/*.js --recursive",
+    "test": "mocha spec --recursive",
+    "test-coverage": "istanbul cover -x '**/spec/**' _mocha spec/**/*.js --recursive",
     "coverage": "istanbul-combine -d coverage -p summary -r lcov -r html coverage/coverage.json coverage/coverage-karma.json"
   },
   "repository": {

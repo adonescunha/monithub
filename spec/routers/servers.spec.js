@@ -87,7 +87,7 @@ describe('GET /servers', function() {
         .then(function(server) {
           return Server.create({
             hostname: 'host2.myapp.com'
-          })
+          });
         })
         .then(function(server) {
           return Server.find({});
@@ -102,7 +102,7 @@ describe('GET /servers', function() {
         })
         .catch(function(err) {
           done(err);
-        })
+        });
     });
   });
 });
