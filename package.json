@@ -36,6 +36,7 @@
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
     "require-dir": "^0.3.0",
+    "sinon": "^1.17.3",
     "supertest": "^1.1.0",
     "supertest-as-promised": "^2.0.2",
     "systemjs": "^0.19.16"
