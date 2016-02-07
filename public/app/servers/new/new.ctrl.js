@@ -1,9 +1,9 @@
 class NewServerCtrl {
 
-  constructor($state, snackbar, ServerService) {
+  constructor($state, snackbar, Servers) {
     this.$state = $state;
     this.snackbar = snackbar;
-    this.ServerService = ServerService;
+    this.Servers = Servers;
     this.init();
   }
 
@@ -13,7 +13,7 @@ class NewServerCtrl {
 
   createServer() {
     let self = this;
-    this.ServerService
+    this.Servers
       .create(this.server)
       .then(() => {
         self.init();
@@ -29,6 +29,6 @@ class NewServerCtrl {
   }
 }
 
-NewServerCtrl.$inject = ['$state', 'snackbar', 'ServerService'];
+NewServerCtrl.$inject = ['$state', 'snackbar', 'Servers'];
 
 export default NewServerCtrl;

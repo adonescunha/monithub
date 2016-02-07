@@ -1,7 +1,7 @@
 import 'app/main';
 import {module} from 'angular-mocks';
 
-let serverService
+let servers
   , http
   , controller
   , state
@@ -15,10 +15,10 @@ describe('NewServerCtrl', () => {
       state = $state;
       http = $httpBackend;
       snackbar = $injector.get('snackbar');
-      serverService = $injector.get('ServerService');
+      servers = $injector.get('Servers');
       controller = $controller('NewServerCtrl', {
         $state: state,
-        ServerService: serverService
+        Servers: servers
       });
       spyOn(controller, 'init').and.callThrough();
       spyOn(state, 'go');
@@ -29,18 +29,18 @@ describe('NewServerCtrl', () => {
   describe('createServer', () => {
     describe('when valid', () => {
       beforeEach(() => {
-        spyOn(serverService, 'create').and.callFake(() => {
+        spyOn(servers, 'create').and.callFake(() => {
           return {
             then: (callback) => {
               return callback();
             }
-          }
+          };
         });
       });
 
       it('should create a server', () => {
         controller.createServer();
-        expect(serverService.create).toHaveBeenCalled();
+        expect(servers.create).toHaveBeenCalled();
         expect(controller.init).toHaveBeenCalled();
         expect(state.go).toHaveBeenCalledWith('app.servers.list');
         expect(snackbar.create).toHaveBeenCalledWith(

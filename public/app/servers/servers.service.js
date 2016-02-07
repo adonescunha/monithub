@@ -1,12 +1,17 @@
-class ServerService {
+class Servers {
 
   constructor($http) {
     this.$http = $http;
   }
 
-  list() {
-    let self = this;
+  get(hostname) {
+    return this.$http.get('/servers/' + hostname)
+      .then((response) => {
+        return response.data;
+      });
+  }
 
+  list() {
     return this.$http.get('/servers')
       .then((response) => {
         return response.data;
@@ -14,8 +19,6 @@ class ServerService {
   }
 
   create(data) {
-    let self = this;
-
     return this.$http.post('/servers', data)
       .then((response) => {
         return response.data;
@@ -23,6 +26,6 @@ class ServerService {
   }
 }
 
-ServerService.$inject = ['$http'];
+Servers.$inject = ['$http'];
 
-export default ServerService;
+export default Servers;

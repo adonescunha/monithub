@@ -3,18 +3,18 @@ import {module} from 'angular-mocks';
 
 let controller
   , data
-  , serverService;
+  , servers;
 
 describe('ListServersCtrl', () => {
   beforeEach(() => {
     module('app');
 
     inject(($injector, $controller) => {
-      serverService = $injector.get('ServerService');
+      servers = $injector.get('Servers');
       controller = $controller('ListServersCtrl', {
-        ServerService: serverService
+        Servers: servers
       });
-      spyOn(serverService, 'list').and.callFake(() => {
+      spyOn(servers, 'list').and.callFake(() => {
         return {
           then: (callback) => {
             return callback(data);
@@ -31,7 +31,7 @@ describe('ListServersCtrl', () => {
 
     it('fetch servers from API', () => {
       controller.init();
-      expect(serverService.list).toHaveBeenCalled();
+      expect(servers.list).toHaveBeenCalled();
       expect(controller.servers.length).toEqual(2);
     });
   });

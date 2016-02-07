@@ -1,15 +1,41 @@
 import 'app/main';
 import {module} from 'angular-mocks';
 
-let http;
+let http
+, servers;
 
-describe('ServerService', () => {
+describe('Servers', () => {
   beforeEach(() => {
     module('app');
 
     inject(($httpBackend, $q, $injector) => {
       http = $httpBackend;
-      serverService = $injector.get('ServerService');
+      servers = $injector.get('Servers');
+    });
+  });
+
+  describe('get', () => {
+    let server
+      , hostname;
+
+    beforeEach(() => {
+      hostname = 'monit.myapp.com';
+      server = {
+        hostname: hostname
+      };
+      http.expectGET('/servers/' + hostname).respond(200, server);
+    });
+
+    it('returns the fetched server', (done) => {
+      servers.get(hostname)
+        .then((actual) => {
+          expect(actual.hostname).toBe(server.hostname);
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+      http.flush();
     });
   });
 
@@ -19,7 +45,7 @@ describe('ServerService', () => {
     });
 
     it('returns response data', (done) => {
-      serverService.list()
+      servers.list()
         .then((actual) => {
           expect(actual.length).toEqual(2);
           done();
@@ -41,7 +67,7 @@ describe('ServerService', () => {
       });
 
       it('returns response data', (done) => {
-        serverService.create({})
+        servers.create({})
           .then((actual) => {
             expect(actual).toEqual(expected);
             done();
@@ -60,9 +86,10 @@ describe('ServerService', () => {
       });
 
       it('rejects response data', (done) => {
-        serverService.create({})
-          .then(() => {}, (actual) => {
-            expect(actual.data).toEqual(expected);
+        servers.create({})
+          .then(() => {}, (response) => {
+            expect(response.status).toBe(400);
+            expect(response.data).toBe(expected);
             done();
           })
           .catch((err) => {
