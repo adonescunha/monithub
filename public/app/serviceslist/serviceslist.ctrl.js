@@ -8,6 +8,7 @@ class ServicesListCtrl {
       .list(hostname)
       .then((services) => {
         this.services = services;
+        this.types = _.groupBy(this.services, "type");
       })
       .catch((err) => {
         throw err;

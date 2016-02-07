@@ -13,7 +13,17 @@ describe('ServicesListCtrl', () => {
     module('serviceslist');
 
     inject(($injector, $controller) => {
-      servicesStub = [1, 2, 3];
+      servicesStub = [
+        {
+          type: 1
+        },
+        {
+          type: 2
+        },
+        {
+          type: 2
+        }
+      ];
       services = $injector.get('Services');
       spyOn(services, 'list').and.callFake(() => {
         return {
@@ -37,6 +47,12 @@ describe('ServicesListCtrl', () => {
     it('fetches the services', () => {
       expect(services.list).toHaveBeenCalledWith(hostname);
       expect(controller.services).toBe(servicesStub);
+    });
+
+    it('groups them by type', () => {
+      expect(_.size(controller.types)).toBe(2);
+      expect(controller.types[1].length).toBe(1);
+      expect(controller.types[2].length).toBe(2);
     });
   });
 });

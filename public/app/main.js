@@ -3,6 +3,7 @@ import './vendor';
 import SidebarModule from './sidebar/sidebar.module';
 import ServersModule from './servers/servers.module';
 import ServerItemModule from './serveritem/serveritem.module';
+import ServicesModule from './services/services.module';
 import Socket from './socket';
 
 export default angular.module('app', [
@@ -10,7 +11,8 @@ export default angular.module('app', [
   'angular.snackbar',
   SidebarModule.name,
   ServerItemModule.name,
-  ServersModule.name
+  ServersModule.name,
+  ServicesModule.name
 ])
   .config(['$stateProvider', function($stateProvider) {
     $stateProvider

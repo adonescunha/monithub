@@ -23,7 +23,7 @@ describe('Servers', () => {
       server = {
         hostname: hostname
       };
-      http.expectGET('/servers/' + hostname).respond(200, server);
+      http.expectGET('/server/' + hostname).respond(200, server);
     });
 
     it('returns the fetched server', (done) => {

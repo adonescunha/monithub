@@ -3,8 +3,12 @@ class Services {
     this.$http = $http;
   }
 
-  list() {
-
+  list(hostname) {
+    return this.$http
+      .get('/server/' + hostname + '/services')
+      .then((response) => {
+        return response.data;
+      });
   }
 }
 

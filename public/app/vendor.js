@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import _ from 'lodash';
 import bootstrap from 'bootstrap';
 import angular from 'angular';
 import uirouter from 'angular-ui-router';

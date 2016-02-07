@@ -5,7 +5,7 @@ class Servers {
   }
 
   get(hostname) {
-    return this.$http.get('/servers/' + hostname)
+    return this.$http.get('/server/' + hostname)
       .then((response) => {
         return response.data;
       });
