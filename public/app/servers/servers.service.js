@@ -24,6 +24,13 @@ class Servers {
         return response.data;
       });
   }
+
+  sync(hostname) {
+    return this.$http.post('/server/' + hostname + '/syncs')
+      .then((response) => {
+        return response.data;
+      });
+  }
 }
 
 Servers.$inject = ['$http'];

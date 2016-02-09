@@ -99,4 +99,26 @@ describe('Servers', () => {
       });
     });
   });
+
+  describe('.sync', () => {
+    let hostname;
+
+    beforeEach(() => {
+      hostname = 'monit.myapp.com';
+      http.expectPOST('/server/' + hostname + '/syncs')
+        .respond(200, {message: 'OK'});
+    });
+
+    it('sends a POST request to /server/:hostname/syncs', (done) => {
+      servers.sync(hostname)
+        .then((response) => {
+          expect(response.message).toBe('OK');
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+      http.flush();
+    });
+  });
 });

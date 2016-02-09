@@ -18,6 +18,14 @@ class ShowServerCtrl {
         });
       });
   }
+
+  sync() {
+    this.servers
+      .sync(this.$stateParams.hostname)
+      .catch((err) => {
+        throw err;
+      });
+  }
 }
 
 ShowServerCtrl.$inject = ['$scope', '$stateParams', 'Servers', 'Socket'];

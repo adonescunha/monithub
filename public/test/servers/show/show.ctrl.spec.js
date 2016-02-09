@@ -42,12 +42,27 @@ describe('ShowServerCtrl', () => {
     });
   });
 
-  describe('#init', () => {
+  describe('.init', () => {
     it('fetches the server', function() {
       expect(servers.get).toHaveBeenCalledWith(hostname);
       expect(socketMock.on)
         .toHaveBeenCalledWith('server-refreshed', jasmine.any(Function));
       expect($scope.server).toBe(server);
+    });
+  });
+
+  describe('.sync', () => {
+    beforeEach(() => {
+      spyOn(servers, 'sync').and.callFake(() => {
+        return {
+          catch: (callback) => {}
+        };
+      });
+    });
+
+    it('requests the server to be synced', () => {
+      controller.sync();
+      expect(servers.sync).toHaveBeenCalledWith(hostname);
     });
   });
 });
