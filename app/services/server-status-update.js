@@ -10,8 +10,8 @@ var ServerStatusUpdate = function(server) {
 };
 
 ServerStatusUpdate.prototype.perform = function() {
-  var self = this;
-  var client = this.getClient();
+  var self = this
+    , client = this.getClient();
   return client.status()
     .then(function(result) {
       return Promise.each(result.monit.service, function(serviceNode) {
@@ -49,7 +49,7 @@ ServerStatusUpdate.prototype.getClient = function() {
     hostname: this.server.hostname,
     port: this.server.port,
     ssl: this.server.ssl,
-    username: this.server.port,
+    username: this.server.username,
     password: this.server.password
   });
 };

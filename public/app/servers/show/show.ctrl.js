@@ -1,7 +1,9 @@
 class ShowServerCtrl {
-  constructor($stateParams, Servers) {
+  constructor($scope, $stateParams, Servers, Socket) {
+    this.$scope = $scope;
     this.$stateParams = $stateParams;
     this.servers = Servers;
+    this.socket = Socket;
     this.init();
   }
 
@@ -9,11 +11,15 @@ class ShowServerCtrl {
     this.servers
       .get(this.$stateParams.hostname)
       .then((server) => {
-        this.server = server;
+        this.$scope.server = server;
+        this.socket.on('server-refreshed', (data) => {
+          this.$scope.server = data.server;
+          this.$scope.$apply();
+        });
       });
   }
 }
 
-ShowServerCtrl.$inject = ['$stateParams', 'Servers'];
+ShowServerCtrl.$inject = ['$scope', '$stateParams', 'Servers', 'Socket'];
 
 export default ShowServerCtrl;

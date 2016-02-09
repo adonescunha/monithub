@@ -14,6 +14,7 @@ module.exports = function(io) {
       })
       .then(function(server) {
         io.emit('server-refreshed', {server: server});
+        done();
         return server;
       })
       .catch(function(err) {

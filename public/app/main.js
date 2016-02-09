@@ -9,6 +9,7 @@ import Socket from './socket';
 export default angular.module('app', [
   'ui.router',
   'angular.snackbar',
+  'angularMoment',
   SidebarModule.name,
   ServerItemModule.name,
   ServersModule.name,

@@ -42,6 +42,11 @@ ServerSchema.methods.updateStatus = function() {
     });
 };
 
+ServerSchema.pre('save', function(next) {
+  this.updated_at = new Date();
+  next();
+});
+
 var Server = mongoose.model('servers', ServerSchema);
 
 module.exports = {

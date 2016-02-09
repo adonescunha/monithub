@@ -11,6 +11,7 @@ var config = require('./config')
   , io = require('socket.io').listen(http);
 
 require('./app/jobs/wait')(io);
+require('./app/jobs/server-status-update')(io);
 
 mongoose.Promise = require('bluebird').Promise;
 mongoose.connect(config.db);

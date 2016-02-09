@@ -27,8 +27,10 @@ System.config({
     "font-awesome": "npm:font-awesome@4.5.0",
     "jquery": "npm:jquery@2.2.0",
     "lodash": "npm:lodash@4.2.1",
+    "moment": "npm:moment@2.11.2",
     "socketio/socket.io-client": "github:socketio/socket.io-client@1.4.5",
     "text": "github:systemjs/plugin-text@0.0.4",
+    "urish/angular-moment": "github:urish/angular-moment@0.10.3",
     "github:angular-ui/ui-router@0.2.17": {
       "angular": "github:angular/bower-angular@1.4.9"
     },
@@ -69,6 +71,9 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:lodash@4.2.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:moment@2.11.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:path-browserify@0.0.0": {

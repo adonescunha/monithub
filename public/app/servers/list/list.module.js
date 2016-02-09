@@ -4,7 +4,7 @@ import ListServersCtrl from './list.ctrl';
 export default angular
   .module('app.servers.list', [])
   .controller(ListServersCtrl.name, ListServersCtrl)
-  .config(['$stateProvider', function($stateProvider) {
+  .config(['$stateProvider', ($stateProvider) => {
     $stateProvider
       .state('app.servers.list', {
         url: '',

@@ -1,4 +1,4 @@
-// import template from './serviceslist.template.html!text';
+import template from './serviceslist.template.html!text';
 import ServicesListCtrl from './serviceslist.ctrl';
 
 function directive() {

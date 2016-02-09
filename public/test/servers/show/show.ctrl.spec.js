@@ -4,14 +4,21 @@ import {module} from 'angular-mocks';
 let controller
   , servers
   , server
+  , $scope
   , $stateParams
-  , hostname;
+  , hostname
+  , socketMock;
 
 describe('ShowServerCtrl', () => {
   beforeEach(() => {
     module('app');
 
-    inject(($injector, $controller) => {
+    inject(($rootScope, $injector, $controller) => {
+      $scope = $rootScope;
+      socketMock = {
+        on: (eventName, handler) => {}
+      };
+      spyOn(socketMock, 'on');
       hostname = 'monit.myapp.com';
       server = {
         hostname: hostname
@@ -27,8 +34,10 @@ describe('ShowServerCtrl', () => {
       $stateParams = $injector.get('$stateParams');
       $stateParams.hostname = hostname;
       controller = $controller('ShowServerCtrl', {
+        $scope: $scope,
         $stateParams: $stateParams,
-        Servers: servers
+        Servers: servers,
+        Socket: socketMock
       });
     });
   });
@@ -36,7 +45,9 @@ describe('ShowServerCtrl', () => {
   describe('#init', () => {
     it('fetches the server', function() {
       expect(servers.get).toHaveBeenCalledWith(hostname);
-      expect(controller.server).toBe(server);
+      expect(socketMock.on)
+        .toHaveBeenCalledWith('server-refreshed', jasmine.any(Function));
+      expect($scope.server).toBe(server);
     });
   });
 });
