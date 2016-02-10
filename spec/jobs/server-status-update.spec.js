@@ -118,8 +118,7 @@ describe('server-status-update job', function() {
       data: {
         server_id: server._id
       },
-      done
-    })
+    }, function() {})
       .then(function(updatedServer) {
         server = updatedServer;
         return Service.find({

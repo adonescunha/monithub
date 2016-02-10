@@ -12,7 +12,8 @@
       </div>
       <div class="box-body">
         <p class="lead">
-          running on myapp-host for 1 day, 8 hours and 42 minutes
+          running on {{server.localhostname}} for
+          <span am-time-ago="server.uptime"></span>
         </p>
         <div class="row">
           <div class="col-lg-8 col-xs-12">
@@ -24,7 +25,7 @@
               </dd>
               <dt>Poll</dt>
               <dd>
-                120 sec
+                {{server.poll}} seconds
               </dd>
             </dl>
           </div>

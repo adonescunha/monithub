@@ -1,9 +1,10 @@
 'use strict';
 
-var Promise = require('bluebird').Promise;
-var Client  = require('monit').Client;
-var Service = require('../models/service').Service;
-var Status  = require('../models/status').Status;
+var Promise = require('bluebird').Promise
+  , Client  = require('monit').Client
+  , Server  = require('../models/server').Server
+  , Service = require('../models/service').Service
+  , Status  = require('../models/status').Status;
 
 var ServerStatusUpdate = function(server) {
   this.server = server;
@@ -11,9 +12,21 @@ var ServerStatusUpdate = function(server) {
 
 ServerStatusUpdate.prototype.perform = function() {
   var self = this
-    , client = this.getClient();
+    , client = this.getClient()
+    , result;
   return client.status()
-    .then(function(result) {
+    .then(function(rst) {
+      result = rst;
+      var serverNode = result.monit.server;
+      return Server.update({
+        _id: self.server._id
+      }, {
+        poll: serverNode.poll,
+        uptime: serverNode.uptime,
+        localhostname: serverNode.localhostname
+      });
+    })
+    .then(function() {
       return Promise.each(result.monit.service, function(serviceNode) {
         var serviceName = serviceNode.name;
         return Service.findOne({

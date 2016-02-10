@@ -113,12 +113,18 @@ describe('ServerStatusUpdate', function() {
           return serverStatusUpdate.perform();
         })
         .then(function() {
+          return Server.findById(server.id);
+        })
+        .then(function(updatedServer) {
+          updatedServer.poll.should.be.equal(120);
+          updatedServer.uptime.should.be.equal(21360);
+          updatedServer.localhostname.should.be.equal('dummy-host');
           return Service.find({server: server});
         })
         .then(function(services) {
           services.length.should.equal(2);
-          var nginxService = services[0];
-          var memcachedService = services[1];
+          var memcachedService = services[0];
+          var nginxService = services[1];
           nginxService.statuses.length.should.equal(1);
           nginxService.statuses[0].collected_sec.should.equal(1453410411);
           memcachedService.statuses.length.should.equal(1);

@@ -13,6 +13,9 @@ var ServerSchema = mongoose.Schema({
     ssl:        {type: Boolean, default: false},
     status:     {type: Number, default: 1, enum: [1, 2, 3]},
     services_count: {type: Number, default: 0},
+    uptime: {type: Number},
+    poll: {type: Number},
+    localhostname: {type: String},
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date}
 });
