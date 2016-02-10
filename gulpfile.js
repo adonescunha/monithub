@@ -21,4 +21,4 @@ gulp.task('test', ['copy'], function(done) {
 
 gulp.task('serve', ['express']);
 
-gulp.task('default', ['serve'])
+gulp.task('default', ['copy', 'serve']);

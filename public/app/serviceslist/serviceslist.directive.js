@@ -5,11 +5,11 @@ function directive() {
   return {
     restrict: "E",
     replace: true,
-    scope: {
-      server: "="
+    template: template,
+    scope: {},
+    bindToController: {
+      server: '='
     },
-    template: '<div>{{server.hostname}} services</div>',
-    bindToController: true,
     controller: ServicesListCtrl,
     controllerAs: 'ctrl'
   };

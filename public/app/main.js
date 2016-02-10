@@ -1,6 +1,7 @@
 import './vendor';
 
 import SidebarModule from './sidebar/sidebar.module';
+import ServicesListModule from './serviceslist/serviceslist.module';
 import ServersModule from './servers/servers.module';
 import ServerItemModule from './serveritem/serveritem.module';
 import ServicesModule from './services/services.module';
@@ -11,6 +12,7 @@ export default angular.module('app', [
   'angular.snackbar',
   'angularMoment',
   SidebarModule.name,
+  ServicesListModule.name,
   ServerItemModule.name,
   ServersModule.name,
   ServicesModule.name

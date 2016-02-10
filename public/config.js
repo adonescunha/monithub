@@ -15,7 +15,7 @@ System.config({
 
   map: {
     "almasaeed2010/AdminLTE": "github:almasaeed2010/AdminLTE@2.3.2",
-    "angular": "github:angular/bower-angular@1.4.9",
+    "angular": "github:angular/bower-angular@1.5.0",
     "angular-mocks": "github:angular/bower-angular-mocks@1.4.8",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.17",
     "babel": "npm:babel-core@5.8.34",

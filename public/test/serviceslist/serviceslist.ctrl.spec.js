@@ -35,13 +35,16 @@ describe('ServicesListCtrl', () => {
           }
         };
       });
-      controller = new ServicesListCtrl(services);
+      controller = new ServicesListCtrl(null, services);
     });
   });
 
   describe('init', function() {
     beforeEach(() => {
-      controller.init(hostname);
+      controller.server = {
+        hostname: hostname
+      };
+      controller.init();
     });
 
     it('fetches the services', () => {

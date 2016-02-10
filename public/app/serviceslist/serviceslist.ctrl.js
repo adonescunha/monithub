@@ -1,11 +1,20 @@
 class ServicesListCtrl {
-  constructor(Services) {
+  constructor($scope, Services) {
+    this.$scope = $scope;
     this.Services = Services;
   }
 
-  init(hostname) {
+  $onInit() {
+    this.$scope.$watch('ctrl.server', (value) => {
+      if (value !== undefined) {
+        this.init();
+      }
+    });
+  }
+
+  init() {
     this.Services
-      .list(hostname)
+      .list(this.server.hostname)
       .then((services) => {
         this.services = services;
         this.types = _.groupBy(this.services, "type");
@@ -16,6 +25,6 @@ class ServicesListCtrl {
   }
 }
 
-ServicesListCtrl.$inject = ['Services'];
+ServicesListCtrl.$inject = ['$scope', 'Services'];
 
 export default ServicesListCtrl;

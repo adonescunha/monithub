@@ -1,3 +1,19 @@
+.box.server-detail {
+  border-left: solid 6px;
+  border-top: none; }
+  .box.server-detail.box-default {
+    border-color: #d2d6de; }
+  .box.server-detail.box-success {
+    border-color: #00a65a; }
+  .box.server-detail.box-danger {
+    border-color: #dd4b39; }
+  .box.server-detail.box-warning {
+    border-color: #f39c12; }
+
+.table.services-table {
+  background-color: #fdfdfd;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+
 /**
  * AdminLTE
  */
