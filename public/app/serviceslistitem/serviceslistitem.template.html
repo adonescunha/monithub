@@ -1,0 +1,12 @@
+<td>
+  <i class="fa fa-circle-o" ng-class="ctrl.status.monitor == 0 ? 'text-gray' : 'text-green'"></i>
+</td>
+<td>{{ctrl.service.name}}</td>
+<td>{{ctrl.status.uptime | amDurationFormat:'seconds'}}</td>
+<td>{{ctrl.status.cpu.percenttotal}}</td>
+<td style="text-align: right">
+  <span ng-if="ctrl.status.monitor != 0">
+    {{ctrl.status.memory.percenttotal}}%
+    [{{ctrl.status.memory.kilobytetotal}} kB]
+  </span>
+</td>

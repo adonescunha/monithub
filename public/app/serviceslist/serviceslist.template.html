@@ -7,16 +7,6 @@
       <th>CPU Total</th>
       <th style="text-align: right">Memory Total</th>
     </tr>
-    <tr ng-repeat="service in ctrl.types[3]">
-      <td>
-        <i class="fa fa-circle-o text-green"></i>
-      </td>
-      <td>{{service.name}}</td>
-      <td>1d&nbsp;8h&nbsp;54m&nbsp;</td>
-      <td>{{service.statuses[0].cpu.percenttotal}}%</td>
-      <td style="text-align: right">
-        {{service.statuses[0].memory.percenttotal}}%
-        [{{service.statuses[0].memory.kilobytetotal}} kB]</td>
-    </tr>
+    <tr serviceslistitem ng-repeat="service in ctrl.types[3]"></tr>
   </table>
 </div>
