@@ -12,15 +12,16 @@ class NewServerCtrl {
   }
 
   createServer() {
-    let self = this;
     this.Servers
       .create(this.server)
       .then(() => {
-        self.init();
-        self.$state.go('app.servers.list');
-        self.snackbar.create('Server successfully added.', 5000);
+        this.$state.go('app.servers.show', {
+          hostname: this.server.hostname
+        });
+        this.Servers.sync(this.server.hostname);
+        this.snackbar.create('Server successfully added.', 5000);
       }, () => {
-        self.logError();
+        this.logError();
       });
   }
 

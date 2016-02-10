@@ -36,13 +36,21 @@ describe('NewServerCtrl', () => {
             }
           };
         });
+
+        spyOn(servers, 'sync');
       });
 
       it('should create a server', () => {
+        controller.server = {
+          hostname: 'hostname'
+        };
         controller.createServer();
         expect(servers.create).toHaveBeenCalled();
-        expect(controller.init).toHaveBeenCalled();
-        expect(state.go).toHaveBeenCalledWith('app.servers.list');
+        expect(servers.sync).toHaveBeenCalled();
+        expect(state.go)
+          .toHaveBeenCalledWith('app.servers.show', {
+            hostname: controller.server.hostname
+          });
         expect(snackbar.create).toHaveBeenCalledWith(
           'Server successfully added.', 5000);
       });
