@@ -18,6 +18,10 @@
     <!-- endbuild -->
     <script type="text/javascript">
       System.import('app/bootstrap');
+      System.import('bootstrap/css/bootstrap.css!')
+        .then(function() {
+          System.import('app/styles.js');
+        });
     </script>
   </body>
 </html>
