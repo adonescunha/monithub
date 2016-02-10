@@ -13,6 +13,10 @@ var StatusSchema = mongoose.Schema({
   ppid:          {type: Number},
   uptime:        {type: Number},
   children:      {type: Number},
+  size:          {type: Number},
+  mode:          {type: Number},
+  uid:           {type: Number},
+  gid:           {type: Number},
   memory:        {
     percent:       {type: Number},
     percenttotal:  {type: Number},
@@ -29,6 +33,16 @@ var StatusSchema = mongoose.Schema({
     protocol: {type: String},
     type: {type: String},
     responsetime: {type: Number}
+  },
+  block: {
+    percent: {type: Number},
+    usage: {type: Number},
+    total: {type: Number}
+  },
+  inode: {
+    percent: {type: Number},
+    usage: {type: Number},
+    total: {type: Number}
   }
 });
 

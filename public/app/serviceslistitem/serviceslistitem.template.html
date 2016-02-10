@@ -1,12 +1,41 @@
 <td>
-  <i class="fa fa-circle-o" ng-class="ctrl.status.monitor == 0 ? 'text-gray' : 'text-green'"></i>
+  <i class="fa fa-circle-o"
+     ng-class="ctrl.getStatusCssClass()"></i>
 </td>
 <td>{{ctrl.service.name}}</td>
-<td>{{ctrl.status.uptime | amDurationFormat:'seconds'}}</td>
-<td>{{ctrl.status.cpu.percenttotal}}</td>
-<td style="text-align: right">
+<td ng-if="ctrl.type == 3">
+  {{ctrl.status.uptime | amDurationFormat:'seconds'}}
+</td>
+<td ng-if="ctrl.type == 3">
+  <span ng-if="ctrl.status.monitor != 0">
+    {{ctrl.status.cpu.percenttotal}}%
+  </span>
+</td>
+<td style="text-align: right" ng-if="ctrl.type == 3">
   <span ng-if="ctrl.status.monitor != 0">
     {{ctrl.status.memory.percenttotal}}%
-    [{{ctrl.status.memory.kilobytetotal}} kB]
+    [{{ctrl.status.memory.kilobytetotal * 1024 | bytes}}]
   </span>
+</td>
+<td ng-if="ctrl.type == 0">
+  <span ng-if="ctrl.status.monitor != 0">
+    {{ctrl.status.block.percent}}%
+    [{{ctrl.status.block.total * 1024 * 1024 | bytes}}]
+  </span>
+</td>
+<td style="text-align: right" ng-if="ctrl.type == 0">
+  <span ng-if="ctrl.status.monitor != 0">
+    {{ctrl.status.inode.percent}}%
+    [{{ctrl.status.inode.total}} objects]
+  </span>
+</td>
+<td ng-if="ctrl.type == 2" >
+  <span ng-if="ctrl.status.monitor != 0">
+    {{ctrl.status.size | bytes}}
+  </span>
+</td>
+<td ng-if="ctrl.type == 2">{{ctrl.status.mode}}</td>
+<td ng-if="ctrl.type == 2">{{ctrl.status.uid}}</td>
+<td style="text-align: right" ng-if="ctrl.type == 2">
+  {{ctrl.status.gid}}
 </td>

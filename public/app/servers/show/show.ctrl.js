@@ -14,7 +14,8 @@ class ShowServerCtrl {
         this.$scope.server = server;
         this.socket.on('server-refreshed', (data) => {
           this.$scope.server = data.server;
-          this.$scope.$apply();
+          // this.$scope.$apply();
+          this.$scope.$digest();
         });
       });
   }

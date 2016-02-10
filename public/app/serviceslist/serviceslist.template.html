@@ -1,12 +1,27 @@
 <div class="col-xs-12">
-  <table class="table table-hover services-table">
-    <tr>
+  <table class="table table-hover services-table"
+         ng-repeat="(type, services) in ctrl.types">
+    <tr ng-if="type == 3">
       <th></th>
       <th>Process</th>
       <th>Uptime</th>
       <th>CPU Total</th>
       <th style="text-align: right">Memory Total</th>
     </tr>
-    <tr serviceslistitem ng-repeat="service in ctrl.types[3]"></tr>
+    <tr ng-if="type == 0">
+      <th></th>
+      <th>Filesystem</th>
+      <th>Space usage</th>
+      <th style="text-align: right">Inodes usage</th>
+    </tr>
+    <tr ng-if="type == 2">
+      <th></th>
+      <th>File</th>
+      <th>Size</th>
+      <th>Permission</th>
+      <th>UID</th>
+      <th style="text-align: right">GID</th>
+    </tr>
+    <tr serviceslistitem type="type" ng-repeat="service in services"></tr>
   </table>
 </div>

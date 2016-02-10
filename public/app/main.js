@@ -6,6 +6,7 @@ import ServicesListItemModule from './serviceslistitem/serviceslistitem.module';
 import ServersModule from './servers/servers.module';
 import ServerItemModule from './serveritem/serveritem.module';
 import ServicesModule from './services/services.module';
+import bytes from './filters/bytes';
 import Socket from './socket';
 
 export default angular.module('app', [
@@ -26,4 +27,5 @@ export default angular.module('app', [
         template: '<div ui-view></div>'
       });
   }])
-  .service(Socket.name, Socket);
+  .service(Socket.name, Socket)
+  .filter('bytes', bytes);
