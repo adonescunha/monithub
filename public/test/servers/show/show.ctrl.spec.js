@@ -50,19 +50,4 @@ describe('ShowServerCtrl', () => {
       expect($scope.server).toBe(server);
     });
   });
-
-  describe('.sync', () => {
-    beforeEach(() => {
-      spyOn(servers, 'sync').and.callFake(() => {
-        return {
-          catch: (callback) => {}
-        };
-      });
-    });
-
-    it('requests the server to be synced', () => {
-      controller.sync();
-      expect(servers.sync).toHaveBeenCalledWith(hostname);
-    });
-  });
 });

@@ -7,7 +7,7 @@ import ServerDetailModule from './serverdetail/serverdetail.module';
 import ServersModule from './servers/servers.module';
 import ServerItemModule from './serveritem/serveritem.module';
 import ServicesModule from './services/services.module';
-import bytes from './filters/bytes';
+import bytes from './bytes';
 import Socket from './socket';
 
 export default angular.module('app', [

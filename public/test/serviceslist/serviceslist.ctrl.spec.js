@@ -12,7 +12,7 @@ describe('ServicesListCtrl', () => {
   beforeEach(() => {
     module('serviceslist');
 
-    inject(($injector, $controller) => {
+    inject(($injector) => {
       servicesStub = [
         {
           type: 1
