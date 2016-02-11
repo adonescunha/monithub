@@ -22,6 +22,9 @@ describe('ServicesListCtrl', () => {
         },
         {
           type: 2
+        },
+        {
+          type: 5
         }
       ];
       controller = new ServicesListCtrl(null, services);

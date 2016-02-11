@@ -33,19 +33,33 @@
         <div class="col-lg-4 col-xs-12">
           <div class="progress-group">
             <span class="progress-text">Load</span>
-            <span class="progress-number">[0.28] [0.34] [0.37]</span>
+            <span class="progress-number">
+              [{{ctrl.systemStatus.load.avg01}}]
+              [{{ctrl.systemStatus.load.avg05}}]
+              [{{ctrl.systemStatus.load.avg15}}]
+            </span>
           </div>
           <div class="progress-group">
             <span class="progress-text">CPU</span>
-            <span class="progress-number">2.4%us, 0.7%sy, 0.0%wa</span>
+            <span class="progress-number">
+              {{ctrl.systemStatus.cpu.user}}%us,
+              {{ctrl.systemStatus.cpu.system}}%sy,
+              {{ctrl.systemStatus.cpu.wait}}%wa
+            </span>
           </div>
           <div class="progress-group">
             <span class="progress-text">Memory</span>
-            <span class="progress-number">61.2% [10071956 kB]</span>
+            <span class="progress-number">
+              {{ctrl.systemStatus.memory.percent}}%
+              [{{ctrl.systemStatus.memory.kilobyte * 1024 | bytes}}]
+            </span>
           </div>
           <div class="progress-group">
             <span class="progress-text">Swap</span>
-            <span class="progress-number">0.0% [0 kB]</span>
+            <span class="progress-number">
+              {{ctrl.systemStatus.swap.percent}}%
+              [{{ctrl.systemStatus.swap.kilobyte * 1024 | bytes}}]
+            </span>
           </div>
         </div>
       </div>

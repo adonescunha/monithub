@@ -10,6 +10,14 @@ class ServiceDetailCtrl {
         this.init();
       }
     });
+
+    this.$scope.$watch('ctrl.services', (value) => {
+      if (value !== undefined) {
+        this.systemStatus = _.find(this.services, {
+          type: 5
+        }).statuses[0].system;
+      }
+    });
   }
 
   init() {

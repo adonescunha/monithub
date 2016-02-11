@@ -43,6 +43,26 @@ var StatusSchema = mongoose.Schema({
     percent: {type: Number},
     usage: {type: Number},
     total: {type: Number}
+  },
+  system: {
+    load: {
+      avg01: {type: Number},
+      avg05: {type: Number},
+      avg15: {type: Number}
+    },
+    cpu: {
+      user: {type: Number},
+      system: {type: Number},
+      wait: {type: Number}
+    },
+    memory: {
+      percent: {type: Number},
+      kilobyte: {type: Number}
+    },
+    swap: {
+      percent: {type: Number},
+      kilobyte: {type: Number}
+    }
   }
 });
 

@@ -13,6 +13,10 @@ class ServicesListCtrl {
 
   init() {
     this.types = _.groupBy(this.services, "type");
+
+    if (5 in this.types) {
+      delete this.types[5];
+    }
   }
 }
 
