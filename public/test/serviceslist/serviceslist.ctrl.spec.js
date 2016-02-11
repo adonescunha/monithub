@@ -24,35 +24,14 @@ describe('ServicesListCtrl', () => {
           type: 2
         }
       ];
-      services = $injector.get('Services');
-      spyOn(services, 'list').and.callFake(() => {
-        return {
-          then: (callback) => {
-            callback(servicesStub);
-            return {
-              catch: () => {}
-            };
-          }
-        };
-      });
       controller = new ServicesListCtrl(null, services);
+      controller.services = servicesStub;
     });
   });
 
   describe('init', function() {
-    beforeEach(() => {
-      controller.server = {
-        hostname: hostname
-      };
-      controller.init();
-    });
-
-    it('fetches the services', () => {
-      expect(services.list).toHaveBeenCalledWith(hostname);
-      expect(controller.services).toBe(servicesStub);
-    });
-
     it('groups them by type', () => {
+      controller.init();
       expect(_.size(controller.types)).toBe(2);
       expect(controller.types[1].length).toBe(1);
       expect(controller.types[2].length).toBe(2);
