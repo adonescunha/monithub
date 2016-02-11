@@ -60,6 +60,36 @@ describe('GET /server/:hostname/services', function() {
           });
       });
     });
+
+    describe('and a query param is passed', function() {
+      it('responds a filtered array of services', function(done) {
+        Service.create(
+          {
+            server: server,
+            name: 'nginx',
+            type: 3
+          },
+          {
+            server: server,
+            name: '/var/log/nginx/access.log',
+            type: 2
+          }
+        )
+          .then(function() {
+            return request(app)
+              .get(servicesUrl)
+              .query({type: 2});
+          })
+          .then(function(res) {
+            res.body.length.should.be.equal(1);
+            res.body[0].type.should.be.equal(2);
+            done();
+          })
+          .catch(function(err) {
+            done(err);
+          });
+      });
+    });
   });
 
   describe('when server does not exist', function() {

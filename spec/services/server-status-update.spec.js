@@ -123,8 +123,8 @@ describe('ServerStatusUpdate', function() {
         })
         .then(function(services) {
           services.length.should.equal(2);
-          var memcachedService = services[0];
-          var nginxService = services[1];
+          var nginxService = services[0];
+          var memcachedService = services[1];
           nginxService.statuses.length.should.equal(1);
           nginxService.statuses[0].collected_sec.should.equal(1453410411);
           memcachedService.statuses.length.should.equal(1);

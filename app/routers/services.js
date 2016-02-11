@@ -17,9 +17,15 @@ router.get('', function(req, res) {
         throw new Error(SERVER_DOES_NOT_EXIST_MESSAGE);
       }
 
-      return Service.find({
+      var query = {
         server: server
-      });
+      };
+
+      if ('type' in req.query) {
+        query.type = req.query.type;
+      }
+
+      return Service.find(query);
     })
     .then(function(services) {
       return res.status(200).json(services);
