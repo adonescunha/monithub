@@ -11,16 +11,6 @@ class ServicesListItemCtrl {
     this.service = this.$scope.$parent.service;
     this.status = this.service.status;
   }
-
-  getStatusCssClass() {
-    if (this.status.monitor === 0) {
-      return 'text-gray';
-    } else if (_.includes([2, 16], this.status.status)) {
-      return 'text-red';
-    }
-
-    return 'text-green';
-  }
 }
 
 ServicesListItemCtrl.$inject = ['$scope'];
