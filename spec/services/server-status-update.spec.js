@@ -1,10 +1,11 @@
 'use strict';
 
 require('../spec_helper');
-var nock    = require('nock');
-var Server  = require('../../app/models/server').Server;
-var Service = require('../../app/models/service').Service;
-var ServerStatusUpdate = require('../../app/services/server-status-update');
+var nock = require('nock')
+  , Server = require('../../app/models/server').Server
+  , Service = require('../../app/models/service').Service
+  , Status = require('../../app/models/status').Status
+  , ServerStatusUpdate = require('../../app/services/server-status-update');
 
 var RESPONSE_BODY = `
   <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -96,6 +97,9 @@ describe('ServerStatusUpdate', function() {
 
   describe('perform', function() {
     it('creates the services which does not exists', function(done) {
+      var nginxService
+        , memcachedService;
+
       Server.create({
         hostname: hostname
       })
@@ -108,7 +112,12 @@ describe('ServerStatusUpdate', function() {
           });
         })
         .then(function(service) {
-          service.statuses.length.should.equal(0);
+          return Status.count({
+            service: service
+          });
+        })
+        .then(function(count) {
+          count.should.equal(0);
           var serverStatusUpdate = new ServerStatusUpdate(server);
           return serverStatusUpdate.perform();
         })
@@ -123,13 +132,23 @@ describe('ServerStatusUpdate', function() {
         })
         .then(function(services) {
           services.length.should.equal(2);
-          var nginxService = services[0];
-          var memcachedService = services[1];
-          nginxService.statuses.length.should.equal(1);
-          nginxService.statuses[0].collected_sec.should.equal(1453410411);
-          memcachedService.statuses.length.should.equal(1);
-          memcachedService.statuses[0].collected_sec.should.equal(1453479824);
+          nginxService = services[0];
+          memcachedService = services[1];
+          nginxService.status.collected_sec.should.equal(1453410411);
+          memcachedService.status.collected_sec.should.equal(1453479824);
           memcachedService.type.should.equal(3);
+          return Status.count({
+            service: nginxService
+          });
+        })
+        .then(function(count) {
+          count.should.be.equal(1);
+          return Status.count({
+            service: memcachedService
+          });
+        })
+        .then(function(count) {
+          count.should.be.equal(1);
           done();
         })
         .catch(function(err) {
@@ -164,12 +183,20 @@ describe('ServerStatusUpdate', function() {
         })
         .then(function(result) {
           serviceNode = result.monit.service[0];
-          service.statuses.length.should.equal(0);
+          return Status.count({
+            service: service
+          });
+        })
+        .then(function(count) {
+          count.should.equal(0);
           return serverStatusUpdate.createServiceStatus(service, serviceNode);
         })
         .then(function(service) {
-          service.statuses.length.should.equal(1);
-          var status = service.statuses[0];
+          return Status.findOne({
+            service: service
+          });
+        })
+        .then(function(status) {
           var memory = status.memory;
           var cpu = status.cpu;
           var memoryNode = serviceNode.memory;

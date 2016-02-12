@@ -8,7 +8,6 @@ var Server = require('../../app/models/server').Server
 
 describe('Server', function() {
   describe('updateStatus', function() {
-
     beforeEach(function(done) {
       Server.create({
         hostname: 'myapp.monit.com',
@@ -21,7 +20,7 @@ describe('Server', function() {
             server: server,
             name: 'nginx',
             type: 3,
-            statuses: [{
+            status: [{
               status: 0
             }]
           });
@@ -31,7 +30,7 @@ describe('Server', function() {
             server: server,
             name: 'gunicorn',
             type: 3,
-            statuses: [{
+            status: [{
               status: 0
             }]
           });
@@ -41,7 +40,7 @@ describe('Server', function() {
             server: server,
             name: 'elasticsearch',
             type: 3,
-            statuses: [{
+            status: [{
               status: 0
             }]
           });
@@ -68,7 +67,7 @@ describe('Server', function() {
         name: 'elasticsearch'
       })
         .then(function(service) {
-          service.statuses[0].status = 2;
+          service.status.status = 2;
           return service.save();
         })
         .then(function() {

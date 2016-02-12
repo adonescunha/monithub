@@ -3,6 +3,7 @@
 var mongoose     = require('mongoose');
 
 var StatusSchema = mongoose.Schema({
+  service: {type: mongoose.Schema.ObjectId, ref: 'services'},
   collected_sec:  {type: Number},
   collected_usec: {type: Number},
   status:        {type: Number},

@@ -8,7 +8,7 @@ var ServiceSchema = mongoose.Schema({
   server:   {type: mongoose.Schema.ObjectId, ref: 'servers'},
   name:     {type: String, required: true},
   type:     {type: Number, required: true},
-  statuses: [StatusSchema]
+  status: StatusSchema
 });
 
 ServiceSchema.methods.incrementServerServicesCount = function(increment) {

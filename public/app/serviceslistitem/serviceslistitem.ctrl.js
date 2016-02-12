@@ -9,7 +9,7 @@ class ServicesListItemCtrl {
 
   init() {
     this.service = this.$scope.$parent.service;
-    this.status = this.service.statuses[0];
+    this.status = this.service.status;
   }
 
   getStatusCssClass() {

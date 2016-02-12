@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose')
+  , _ = require('lodash')
   , service = require('./service')
   , Service  = service.Service
   , ServiceSchema  = service.ServiceSchema;
@@ -28,14 +29,13 @@ ServerSchema.methods.updateStatus = function() {
     .then(function(services) {
       var status = 0;
 
-      for (var i = 0; i < services.length; i++) {
-        var service = services[i];
-        var newStatus = service.statuses[0].status;
+      _.each(services, function(service) {
+        var newStatus = service.status.status;
 
         if (newStatus > status) {
-          status = service.statuses[0].status;
+          status = service.status.status;
         }
-      }
+      });
 
       self.status = status;
       return self.save();

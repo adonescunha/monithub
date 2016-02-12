@@ -69,8 +69,10 @@ ServerStatusUpdate.prototype.getClient = function() {
 
 ServerStatusUpdate.prototype.createServiceStatus = function(service, serviceNode) {
   var status = new Status(serviceNode);
+  status.service = service;
+  status.save();
 
-  service.statuses.unshift(status);
+  service.status = status;
   return service.save();
 };
 
