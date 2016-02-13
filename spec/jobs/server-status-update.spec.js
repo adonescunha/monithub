@@ -128,7 +128,7 @@ describe('server-status-update job', function() {
       .then(function(services) {
         services.length.should.be.equal(2);
         expect(emitSpy).to.have.been.called.with(
-          'server-refreshed', {server: server});
+          'server-' + server._id + 'refreshed', {server: server});
         done();
       })
       .catch(function(err) {

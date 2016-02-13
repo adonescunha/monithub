@@ -11,7 +11,7 @@ class ShowServerCtrl {
   init() {
     this.getServer()
       .then(() => {
-        this.socket.on('server-refreshed', (data) => {
+        this.socket.on('server-' + this.$scope.server._id + 'refreshed', (data) => {
           this.$scope.server = data.server;
           this.getServices()
             .then(() => {

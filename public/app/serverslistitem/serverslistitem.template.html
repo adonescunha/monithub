@@ -1,16 +1,16 @@
 <li class="item">
   <div class="server-info"
-       server-status-class="server">
-    <a ui-sref="app.servers.show({hostname: server.hostname})"
+       server-status-class="ctrl.server">
+    <a ui-sref="app.servers.show({hostname: ctrl.server.hostname})"
        class="product-title">
-      {{server.hostname}}
+      {{ctrl.server.hostname}}
     </a>
     <span class="product-description">
       Last update:
-      <span am-time-ago="server.updated_at"></span>
+      <span am-time-ago="ctrl.server.updated_at"></span>
     </span>
     <span class="product-description">
-      {{server.poll}} seconds
+      {{ctrl.server.poll}} seconds
     </span>
   </div>
 </li>

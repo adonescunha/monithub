@@ -13,7 +13,7 @@ module.exports = function(io) {
         return serverStatusUpdate.perform();
       })
       .then(function(server) {
-        io.emit('server-refreshed', {server: server});
+        io.emit('server-' + job.data.server_id + 'refreshed', {server: server});
         done();
         return server;
       })
