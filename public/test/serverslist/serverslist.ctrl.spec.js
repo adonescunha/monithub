@@ -1,26 +1,25 @@
 import 'app/main';
+import ServersListCtrl from 'app/serverslist/serverslist.ctrl';
 import {module} from 'angular-mocks';
 
 let controller
   , data
   , servers;
 
-describe('ListServersCtrl', () => {
+describe('ServersListCtrl', () => {
   beforeEach(() => {
     module('app');
 
-    inject(($injector, $controller) => {
+    inject(($injector) => {
       servers = $injector.get('Servers');
-      controller = $controller('ListServersCtrl', {
-        Servers: servers
-      });
       spyOn(servers, 'list').and.callFake(() => {
         return {
           then: (callback) => {
-            return callback(data);
+            callback(data);
           }
-        }
+        };
       });
+      controller = new ServersListCtrl(servers);
     });
   });
 

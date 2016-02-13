@@ -1,0 +1,20 @@
+<div class="box servers-list">
+  <div class="box-header with-border">
+    <h3 class="box-title">Servers</h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" ui-sref="app.servers.new">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="box-body">
+    <div class="alert alert-info" ng-if="ctrl.servers.length == 0">
+      No servers registered.
+    </div>
+    <ul class="products-list product-list-in-box"
+        ng-if="ctrl.servers.length > 0">
+      <serverslistitem server="server"
+                       ng-repeat="server in ctrl.servers"></serverslistitem>
+    </ul>
+  </div>
+</div>

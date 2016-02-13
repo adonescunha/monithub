@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MonitHub</title>
   </head>
-  <body class="skin-blue">
+  <body class="skin-blue sidebar-collapse">
     <div class="wrapper">
-      <sidebar></sidebar>
-      <div class="content-wrapper" ui-view></div>
+      <header class="main-header">
+        <a href="/" class="logo">
+          <span class="logo-lg">monithub</span>
+        </a>
+        <nav class="navbar navbar-static-top"></nav>
+      </header>
+      <div class="content-wrapper">
+        <section class="content">
+          <div class="col-lg-9 col-xs-12 pull-right" ui-view></div>
+          <div class="col-lg-3 col-xs-12 pull-left">
+            <serverslist></serverslist>
+          </div>
+          <div class="clearfix"></div>
+        </section>
+      </div>
     </div>
     <div class="snackbar-container" data-snackbar="true"></div>
     <!-- build:js js/bundle.js -->

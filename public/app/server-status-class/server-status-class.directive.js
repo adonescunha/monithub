@@ -1,15 +1,9 @@
-let getStatusCssClass = (services) => {
-  var cssClass = 'box-success';
+let getStatusCssClass = (server) => {
+  if (server.status > 0) {
+    return 'box-danger';
+  }
 
-  _.each(services, (service) => {
-    if (service.status.monitor === 0 && cssClass != 'text-red') {
-      cssClass = 'box-default';
-    } else if (_.includes([2, 16], service.status.status)) {
-      cssClass = 'box-danger';
-    }
-  });
-
-  return cssClass;
+  return 'box-success';
 };
 
 export default () => {

@@ -1,4 +1,4 @@
-class ListServersCtrl {
+class ServersListCtrl {
 
   constructor(Servers) {
     this.Servers = Servers;
@@ -6,16 +6,14 @@ class ListServersCtrl {
   }
 
   init() {
-    let self = this;
     this.servers = [];
-
     this.Servers.list()
       .then((servers) => {
-        self.servers = servers;
+        this.servers = servers;
       });
   }
 }
 
-ListServersCtrl.$inject = ['Servers'];
+ServersListCtrl.$inject = ['Servers'];
 
-export default ListServersCtrl;
+export default ServersListCtrl;

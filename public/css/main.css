@@ -1,14 +1,22 @@
-.box.server-detail {
-  border-left: solid 6px;
+.box.server-detail, .box.servers-list {
   border-top: none; }
-  .box.server-detail.box-default {
+
+.box.server-detail, .server-info {
+  border-left: solid 6px; }
+  .box.server-detail.box-default, .server-info.box-default {
     border-color: #d2d6de; }
-  .box.server-detail.box-success {
+  .box.server-detail.box-success, .server-info.box-success {
     border-color: #00a65a; }
-  .box.server-detail.box-danger {
+  .box.server-detail.box-danger, .server-info.box-danger {
     border-color: #dd4b39; }
-  .box.server-detail.box-warning {
+  .box.server-detail.box-warning, .server-info.box-warning {
     border-color: #f39c12; }
+
+.box.servers-list {
+  margin-top: 60px; }
+
+.server-info {
+  padding-left: 20px; }
 
 .table.services-table {
   background-color: #fdfdfd;

@@ -1,4 +1,4 @@
-import template from './serveritem.template.html!text';
+import template from './serverslistitem.template.html!text';
 
 function directive() {
   return {

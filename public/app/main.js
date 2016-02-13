@@ -6,8 +6,9 @@ import ServicesListItemModule from './serviceslistitem/serviceslistitem.module';
 import ServiceStatusClassModule from './service-status-class/service-status-class.module';
 import ServerStatusClassModule from './server-status-class/server-status-class.module';
 import ServerDetailModule from './serverdetail/serverdetail.module';
+import ServersListModule from './serverslist/serverslist.module';
+import ServersListItemModule from './serverslistitem/serverslistitem.module';
 import ServersModule from './servers/servers.module';
-import ServerItemModule from './serveritem/serveritem.module';
 import ServicesModule from './services/services.module';
 import bytes from './bytes';
 import Socket from './socket';
@@ -22,7 +23,8 @@ export default angular.module('app', [
   ServiceStatusClassModule.name,
   ServerStatusClassModule.name,
   ServerDetailModule.name,
-  ServerItemModule.name,
+  ServersListModule.name,
+  ServersListItemModule.name,
   ServersModule.name,
   ServicesModule.name
 ])
