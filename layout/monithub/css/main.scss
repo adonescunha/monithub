@@ -12,7 +12,7 @@ $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:     20px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
@@ -48,9 +48,12 @@ $warning-color: #f39c12;
     }
 }
 
-.box.server-detail {
-  border-left: solid 6px;
+.box.server-detail, .box.servers-list {
   border-top: none;
+}
+
+.box.server-detail, .server-info {
+  border-left: solid 6px;
 
   &.box-default {
     border-color: $default-color;
@@ -67,6 +70,14 @@ $warning-color: #f39c12;
   &.box-warning {
     border-color: $warning-color;
   }
+}
+
+.box.servers-list {
+  margin-top: 3 * $spacing-unit;
+}
+
+.server-info {
+  padding-left: $spacing-unit;
 }
 
 .table.services-table {
