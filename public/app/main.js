@@ -1,6 +1,6 @@
 import './vendor';
 
-import SidebarModule from './sidebar/sidebar.module';
+import NavigationModule from './navigation/navigation.module';
 import ServicesListModule from './serviceslist/serviceslist.module';
 import ServicesListItemModule from './serviceslistitem/serviceslistitem.module';
 import ServiceStatusClassModule from './service-status-class/service-status-class.module';
@@ -17,7 +17,7 @@ export default angular.module('app', [
   'ui.router',
   'angular.snackbar',
   'angularMoment',
-  SidebarModule.name,
+  NavigationModule.name,
   ServicesListModule.name,
   ServicesListItemModule.name,
   ServiceStatusClassModule.name,

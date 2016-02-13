@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
 
-app.use('/servers', require('./app/routers/servers'));
+app.use('/servers', require('./app/routers/servers')(io));
 app.use('/server', require('./app/routers/server'));
 app.use('/wait', require('./app/routers/wait')(io));
 

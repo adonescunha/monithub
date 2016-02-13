@@ -1,7 +1,8 @@
 class ServersListCtrl {
-
-  constructor(Servers) {
+  constructor($scope, Servers, Socket) {
+    this.$scope = $scope;
     this.Servers = Servers;
+    this.socket = Socket;
     this.init();
   }
 
@@ -10,10 +11,14 @@ class ServersListCtrl {
     this.Servers.list()
       .then((servers) => {
         this.servers = servers;
+        this.socket.on('server-created', (data) => {
+          this.servers.push(data.server);
+          this.$scope.$digest();
+        });
       });
   }
 }
 
-ServersListCtrl.$inject = ['Servers'];
+ServersListCtrl.$inject = ['$scope', 'Servers', 'Socket'];
 
 export default ServersListCtrl;

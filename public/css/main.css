@@ -1,3 +1,6 @@
+body.skin-blue {
+  background-color: #ecf0f5; }
+
 .box.server-detail, .box.servers-list {
   border-top: none; }
 

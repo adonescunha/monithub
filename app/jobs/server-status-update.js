@@ -14,6 +14,11 @@ module.exports = function(io) {
       })
       .then(function(server) {
         io.emit('server-' + job.data.server_id + 'refreshed', {server: server});
+        queue.create('server-status-update', {
+          server_id: server._id
+        })
+          .delay(server.poll * 1000)
+          .save();
         done();
         return server;
       })

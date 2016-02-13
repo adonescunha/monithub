@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MonitHub</title>
+    <style type="text/css">
+      body.skin-blue {
+        background-color: #ecf0f5;
+      }
+    </style>
   </head>
   <body class="skin-blue sidebar-collapse">
     <div class="wrapper">
-      <header class="main-header">
-        <a href="/" class="logo">
-          <span class="logo-lg">monithub</span>
-        </a>
-        <nav class="navbar navbar-static-top"></nav>
-      </header>
+      <navigation></navigation>
       <div class="content-wrapper">
         <section class="content">
           <div class="col-lg-9 col-xs-12 pull-right" ui-view></div>
@@ -30,10 +30,12 @@
     <script type="text/javascript" src="config.js"></script>
     <!-- endbuild -->
     <script type="text/javascript">
-      System.import('app/bootstrap');
       System.import('bootstrap/css/bootstrap.css!')
         .then(function() {
-          System.import('app/styles.js');
+          return System.import('app/styles.js');
+        })
+        .then(function() {
+          System.import('app/bootstrap');
         });
     </script>
   </body>
