@@ -56,9 +56,9 @@ describe('ServiceAction', function() {
         })
         .then(function() {
           assert(queue.create.calledWith(
-            'service-action',
+            'server-status-update',
             {
-              service_id: service._id
+              server_id: server._id
             }
           ));
           done();

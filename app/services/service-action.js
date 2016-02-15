@@ -20,8 +20,8 @@ ServiceAction.prototype.perform = function() {
     action: this.options.action
   })
     .then(function() {
-      queue.create('service-action', {
-        service_id: self.options.service._id
+      queue.create('server-status-update', {
+        server_id: self.options.server._id
       }).save();
     })
     .catch(function(err) {
