@@ -3,11 +3,14 @@
 var express = require('express')
   , router = express.Router()
   , servicesRouter = require('./services')
+  , serviceRouter = require('./service')
   , syncsRouter = require('./syncs')
   , Server = require('../models/server').Server
   , SERVER_DOES_NOT_EXIST_MESSAGE = require('../errors').SERVER_DOES_NOT_EXIST_MESSAGE;
 
 router.use('/:hostname/services', servicesRouter);
+
+router.use('/:hostname/service', serviceRouter);
 
 router.use('/:hostname/syncs', syncsRouter);
 

@@ -3,8 +3,6 @@
 require('../spec_helper');
 
 var assert = require('assert')
-  , chai = require('chai')
-  , expect = chai.expect
   , sinon = require('sinon')
   , request = require('supertest-as-promised')
   , app     = require('../../serve')
@@ -16,8 +14,7 @@ describe('POST /server/:hostname/syncs', function() {
   var syncsUrl = '/server/monit.myapp.com/syncs';
 
   describe('when server exists', function() {
-    var server
-      , createStub;
+    var server;
 
     beforeEach(function(done) {
       sinon.stub(queue, 'create', function() {
