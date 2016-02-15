@@ -1,14 +1,17 @@
 'use strict';
 
 var Promise = require('bluebird').Promise
-  , Client  = require('monit').Client
+  , Base  = require('./base')
   , Server  = require('../models/server').Server
   , Service = require('../models/service').Service
-  , Status  = require('../models/status').Status;
+  , Status  = require('../models/status').Status
+  , inherits = require('util').inherits;
 
-var ServerStatusUpdate = function(server) {
-  this.server = server;
+var ServerStatusUpdate = function(options) {
+  Base.call(this, options);
 };
+
+inherits(ServerStatusUpdate, Base);
 
 ServerStatusUpdate.prototype.perform = function() {
   var self = this
@@ -19,7 +22,7 @@ ServerStatusUpdate.prototype.perform = function() {
       result = rst;
       var serverNode = result.monit.server;
       return Server.update({
-        _id: self.server._id
+        _id: self.options.server._id
       }, {
         poll: serverNode.poll,
         uptime: serverNode.uptime,
@@ -30,13 +33,13 @@ ServerStatusUpdate.prototype.perform = function() {
       return Promise.each(result.monit.service, function(serviceNode) {
         var serviceName = serviceNode.name;
         return Service.findOne({
-          server: self.server,
+          server: self.options.server,
           name: serviceName
         })
           .then(function(service) {
             if (!service) {
               return Service.create({
-                server: self.server,
+                server: self.options.server,
                 name: serviceName,
                 type: serviceNode.$.type
               })
@@ -50,21 +53,11 @@ ServerStatusUpdate.prototype.perform = function() {
         });
       })
     .then(function() {
-      return self.server.updateStatus();
+      return self.options.server.updateStatus();
     })
     .catch(function(err) {
       throw err;
     });
-};
-
-ServerStatusUpdate.prototype.getClient = function() {
-  return new Client({
-    hostname: this.server.hostname,
-    port: this.server.port,
-    ssl: this.server.ssl,
-    username: this.server.username,
-    password: this.server.password
-  });
 };
 
 ServerStatusUpdate.prototype.createServiceStatus = function(service, serviceNode) {

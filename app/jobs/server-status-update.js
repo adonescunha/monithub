@@ -9,7 +9,7 @@ module.exports = function(io) {
   var jobHandler = function(job, done) {
     return Server.findById(job.data.server_id)
       .then(function(server) {
-        var serverStatusUpdate = new ServerStatusUpdate(server);
+        var serverStatusUpdate = new ServerStatusUpdate({server: server});
         return serverStatusUpdate.perform();
       })
       .then(function(server) {

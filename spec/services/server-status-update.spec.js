@@ -118,7 +118,7 @@ describe('ServerStatusUpdate', function() {
         })
         .then(function(count) {
           count.should.equal(0);
-          var serverStatusUpdate = new ServerStatusUpdate(server);
+          var serverStatusUpdate = new ServerStatusUpdate({server: server});
           return serverStatusUpdate.perform();
         })
         .then(function() {
@@ -177,7 +177,7 @@ describe('ServerStatusUpdate', function() {
         })
         .then(function(newService) {
           service = newService;
-          serverStatusUpdate = new ServerStatusUpdate(server);
+          serverStatusUpdate = new ServerStatusUpdate({server: server});
           client = serverStatusUpdate.getClient();
           return client.status();
         })
