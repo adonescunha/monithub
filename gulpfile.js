@@ -9,7 +9,7 @@ gulp.task('copy', function() {
 });
 
 gulp.task('express', function() {
-  require('./serve');
+  require('./index');
 });
 
 gulp.task('test', ['copy'], function(done) {

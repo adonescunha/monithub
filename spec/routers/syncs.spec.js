@@ -5,8 +5,7 @@ require('../spec_helper');
 var assert = require('assert')
   , sinon = require('sinon')
   , request = require('supertest-as-promised')
-  , app     = require('../../serve')
-  , Server  = require('../../app/models/server').Server
+  , Server  = require('../../lib/models/server').Server
   , kue = require('kue')
   , queue = kue.createQueue();
 

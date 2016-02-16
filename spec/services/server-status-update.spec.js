@@ -2,10 +2,10 @@
 
 require('../spec_helper');
 var nock = require('nock')
-  , Server = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service
-  , Status = require('../../app/models/status').Status
-  , ServerStatusUpdate = require('../../app/services/server-status-update');
+  , Server = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service
+  , Status = require('../../lib/models/status').Status
+  , ServerStatusUpdate = require('../../lib/services/server-status-update');
 
 var RESPONSE_BODY = `
   <?xml version="1.0" encoding="ISO-8859-1"?>

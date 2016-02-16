@@ -3,9 +3,8 @@
 var assert = require('assert')
   , sinon = require('sinon')
   , request = require('supertest-as-promised')
-  , app = require('../../serve')
-  , Server = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service
+  , Server = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service
   , kue = require('kue')
   , queue = kue.createQueue();
 

@@ -3,8 +3,7 @@
 require('../spec_helper');
 
 var request = require('supertest-as-promised')
-  , app     = require('../../serve')
-  , Server  = require('../../app/models/server').Server;
+  , Server  = require('../../lib/models/server').Server;
 
 describe('GET /server/:hostname', function() {
   describe('when a server with the provided hostname exists', function() {

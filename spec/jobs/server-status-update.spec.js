@@ -5,8 +5,8 @@ require('../spec_helper');
 var chai = require('chai')
   , expect = chai.expect
   , nock = require('nock')
-  , Server = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service;
+  , Server = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service;
 
 var RESPONSE_BODY = `
   <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -96,7 +96,7 @@ describe('server-status-update job', function() {
       emit: function(event, data) {}
     };
     emitSpy = chai.spy.on(io, 'emit');
-    serverStatusUpdateJob = require('../../app/jobs/server-status-update')(io);
+    serverStatusUpdateJob = require('../../lib/jobs/server-status-update')(io);
     nock('http://monit.myapp.com:2812')
       .get('/_status')
       .query({format: 'xml'})

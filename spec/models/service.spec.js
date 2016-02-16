@@ -2,8 +2,8 @@
 
 require('../spec_helper');
 
-var Server  = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service;
+var Server  = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service;
 
 describe('Service', function() {
   var server

@@ -1,17 +1,25 @@
 'use strict';
 
-var config   = require('../config')
+var config   = require('../lib/config')
   , chai     = require('chai')
   , spies    = require('chai-spies')
   , should   = chai.should()
   , mongoose = require('mongoose')
   , clearDB  = require('mocha-mongoose')(config.db)
-  , app      = require('../serve');
+  , monithub = require('../lib');
 
 chai.use(spies);
 
 beforeEach(function(done) {
-  if (mongoose.connection.db) return done();
+  if (GLOBAL.app) return done();
 
-  mongoose.connect(config.db, done);
+  return monithub()
+    .then(function(server) {
+      GLOBAL.app = server.rootApp;
+      server.start();
+      done();
+    })
+    .catch(function(err) {
+      throw err;
+    });
 });

@@ -3,8 +3,7 @@
 require('../spec_helper');
 
 var request = require('supertest-as-promised')
-  , app     = require('../../serve')
-  , Server  = require('../../app/models/server').Server;
+  , Server  = require('../../lib/models/server').Server;
 
 describe('POST /servers', function() {
   describe('when the request body is valid', function() {

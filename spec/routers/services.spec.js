@@ -3,9 +3,8 @@
 require('../spec_helper');
 
 var request = require('supertest-as-promised')
-  , app     = require('../../serve')
-  , Server  = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service;
+  , Server  = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service;
 
 describe('GET /server/:hostname/services', function() {
   var servicesUrl = '/server/monit.myapp.com/services';

@@ -2,7 +2,7 @@
   "name": "monithub",
   "version": "1.0.0",
   "description": "",
-  "main": "serve.js",
+  "main": "index.js",
   "dependencies": {
     "body-parser": "^1.14.2",
     "kue": "^0.10.5",
@@ -42,6 +42,7 @@
     "systemjs": "^0.19.16"
   },
   "scripts": {
+    "start": "node index",
     "test": "mocha spec --recursive",
     "test-coverage": "istanbul cover -x '**/spec/**' _mocha spec/**/*.js --recursive",
     "coverage": "istanbul-combine -d coverage -p summary -r lcov -r html coverage/coverage.json coverage/coverage-karma.json"

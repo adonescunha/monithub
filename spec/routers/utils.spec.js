@@ -4,11 +4,10 @@ require('../spec_helper');
 
 var assert = require('assert')
   , sinon = require('sinon')
-  , app = require('../../serve')
   , res = require('express').response
-  , Server = require('../../app/models/server').Server
-  , SERVER_DOES_NOT_EXIST_MESSAGE = require('../../app/errors').SERVER_DOES_NOT_EXIST_MESSAGE
-  , findServerOr404 = require('../../app/routers/utils').findServerOr404;
+  , Server = require('../../lib/models/server').Server
+  , SERVER_DOES_NOT_EXIST_MESSAGE = require('../../lib/errors').SERVER_DOES_NOT_EXIST_MESSAGE
+  , findServerOr404 = require('../../lib/routers/utils').findServerOr404;
 
 describe('findServerOr404', function() {
   var hostname = 'monit.myapp.com'

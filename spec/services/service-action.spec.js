@@ -5,9 +5,9 @@ require('../spec_helper');
 var assert = require('assert')
   , sinon = require('sinon')
   , nock = require('nock')
-  , Server  = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service
-  , ServiceAction = require('../../app/services/service-action')
+  , Server  = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service
+  , ServiceAction = require('../../lib/services/service-action')
   , kue = require('kue')
   , queue = kue.createQueue();
 

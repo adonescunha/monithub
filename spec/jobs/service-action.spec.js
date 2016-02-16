@@ -1,9 +1,9 @@
 'use strict';
 
 var nock = require('nock')
-  , serviceActionJob = require('../../app/jobs/service-action')
-  , Server = require('../../app/models/server').Server
-  , Service = require('../../app/models/service').Service;
+  , serviceActionJob = require('../../lib/jobs/service-action')
+  , Server = require('../../lib/models/server').Server
+  , Service = require('../../lib/models/service').Service;
 
 describe('service-action job', function() {
   var hostname = 'monit.myapp.com'
