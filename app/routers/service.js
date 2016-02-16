@@ -2,41 +2,32 @@
 
 var express = require('express')
   , router = express.Router({mergeParams: true})
-  , Server = require('../models/server').Server
-  , Service = require('../models/service').Service
+  , routersUtils = require('./utils')
+  , findServerOr404 = routersUtils.findServerOr404
+  , findServiceOr404 = routersUtils.findServiceOr404
   , kue = require('kue')
-  , queue = kue.createQueue()
-  , SERVER_DOES_NOT_EXIST_MESSAGE = require('../errors').SERVER_DOES_NOT_EXIST_MESSAGE;
+  , queue = kue.createQueue();
 
 router.post('/:name/actions', function(req, res) {
-  var server;
-
-  Server.findOne({
+  findServerOr404(req, res, {
     hostname: req.params.hostname
   })
-    .then(function(serverFound) {
-      if (serverFound === null) {
-        throw new Error(SERVER_DOES_NOT_EXIST_MESSAGE);
-      }
-
-      server = serverFound;
-      return Service.findOne({
-        server: server,
+    .then(function(res) {
+      return findServiceOr404(req, res, {
+        server: req.params.server,
         name: req.params.name
       });
     })
-    .then(function(service) {
+    .then(function(res) {
       queue.create('service-action', {
-        service_id: service._id,
+        service_id: req.params.service._id,
         action: req.body.name
       }).save();
       return res.status(200).json({message: 'OK'});
     })
     .catch(function(err) {
-      if (err.message == SERVER_DOES_NOT_EXIST_MESSAGE) {
-        return res.status(404).json({
-          message: SERVER_DOES_NOT_EXIST_MESSAGE
-        });
+      if (err.response !== undefined) {
+        return res;
       }
 
       throw err;
