@@ -7,7 +7,8 @@ function directive() {
     template: template,
     scope: {},
     bindToController: {
-      type: '='
+      type: '=',
+      server: '='
     },
     controller: ServicesListItemCtrl,
     controllerAs: 'ctrl'

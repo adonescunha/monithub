@@ -8,7 +8,8 @@ function directive() {
     template: template,
     scope: {},
     bindToController: {
-      services: '='
+      services: '=',
+      server: '='
     },
     controller: ServicesListCtrl,
     controllerAs: 'ctrl'

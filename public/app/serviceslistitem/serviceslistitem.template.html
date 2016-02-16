@@ -39,3 +39,32 @@
 <td style="text-align: right" ng-if="ctrl.type == 2">
   {{ctrl.status.gid}}
 </td>
+<td>
+  <div class="box-tools pull-right">
+    <button type="button" class="btn btn-box-tool" data-toggle="tooltip"
+            title="Start service" ng-if="ctrl.type == 3"
+            ng-click="ctrl.action('start')">
+      <i class="fa fa-play"></i>
+    </button>
+    <button type="button" class="btn btn-box-tool" data-toggle="tooltip"
+            title="Stop service" ng-if="ctrl.type == 3"
+            ng-click="ctrl.action('stop')">
+      <i class="fa fa-stop"></i>
+    </button>
+    <button type="button" class="btn btn-box-tool" data-toggle="tooltip"
+            title="Restart service" ng-if="ctrl.type == 3"
+            ng-click="ctrl.action('restart')">
+      <i class="fa fa-refresh"></i>
+    </button>
+    <button type="button" class="btn btn-box-tool" data-toggle="tooltip"
+            title="Enable monitoring" ng-if="ctrl.service.status.monitor == 0"
+            ng-click="ctrl.action('monitor')">
+      <i class="fa fa-power-off"></i>
+    </button>
+    <button type="button" class="btn btn-box-tool" data-toggle="tooltip"
+            title="Disable monitoring" ng-if="ctrl.service.status.monitor == 1"
+            ng-click="ctrl.action('unmonitor')">
+      <i class="fa fa-power-off"></i>
+    </button>
+  </div>
+</td>

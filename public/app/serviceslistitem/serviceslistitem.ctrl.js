@@ -1,6 +1,7 @@
 class ServicesListItemCtrl {
-  constructor($scope) {
+  constructor($scope, $http) {
     this.$scope = $scope;
+    this.$http = $http;
   }
 
   $onInit() {
@@ -11,8 +12,21 @@ class ServicesListItemCtrl {
     this.service = this.$scope.$parent.service;
     this.status = this.service.status;
   }
+
+  action(name) {
+    this.$http
+      .post('/server/' + this.server.hostname + '/service/' + this.service.name + '/actions', {
+        name: name
+      })
+      .then((response) => {
+        console.log(name + ' pending');
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
 }
 
-ServicesListItemCtrl.$inject = ['$scope'];
+ServicesListItemCtrl.$inject = ['$scope', '$http'];
 
 export default ServicesListItemCtrl;
