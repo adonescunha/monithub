@@ -5,8 +5,7 @@ var express = require('express')
   , servicesRouter = require('./services')
   , serviceRouter = require('./service')
   , syncsRouter = require('./syncs')
-  , Server = require('../models/server').Server
-  , SERVER_DOES_NOT_EXIST_MESSAGE = require('../errors').SERVER_DOES_NOT_EXIST_MESSAGE;
+  , findServerOr404 = require('./utils').findServerOr404;
 
 router.use('/:hostname/services', servicesRouter);
 
@@ -15,19 +14,17 @@ router.use('/:hostname/service', serviceRouter);
 router.use('/:hostname/syncs', syncsRouter);
 
 router.get('/:hostname', function(req, res) {
-  Server.findOne({
+  findServerOr404(req, res, {
     hostname: req.params.hostname
   })
-    .then(function(server) {
-      if (server === null) {
-        return res.status(404).json({
-          message: SERVER_DOES_NOT_EXIST_MESSAGE
-        });
-      }
-
-      return res.status(200).json(server);
+    .then(function(res) {
+      return res.status(200).json(req.params.server);
     })
     .catch(function(err) {
+      if (err.response !== undefined) {
+        return err.response;
+      }
+
       throw err;
     });
 });

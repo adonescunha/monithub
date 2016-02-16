@@ -2,23 +2,16 @@
 
 var express = require('express')
   , router = express.Router({mergeParams: true})
-  , Server = require('../models/server').Server
   , Service = require('../models/service').Service
-  , SERVER_DOES_NOT_EXIST_MESSAGE = require('../errors').SERVER_DOES_NOT_EXIST_MESSAGE;
+  , findServerOr404 = require('./utils').findServerOr404;
 
 router.get('', function(req, res) {
-  var server;
-
-  Server.findOne({
+  return findServerOr404(req, res, {
     hostname: req.params.hostname
   })
-    .then(function(server) {
-      if (server === null) {
-        throw new Error(SERVER_DOES_NOT_EXIST_MESSAGE);
-      }
-
+    .then(function(res) {
       var query = {
-        server: server
+        server: req.params.server
       };
 
       if ('type' in req.query) {
@@ -31,10 +24,8 @@ router.get('', function(req, res) {
       return res.status(200).json(services);
     })
     .catch(function(err) {
-      if (err.message == SERVER_DOES_NOT_EXIST_MESSAGE) {
-        return res.status(404).json({
-          message: SERVER_DOES_NOT_EXIST_MESSAGE
-        });
+      if (err.response !== undefined) {
+        return err.response;
       }
 
       throw err;
