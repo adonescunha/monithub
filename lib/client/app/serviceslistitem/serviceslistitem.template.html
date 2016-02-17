@@ -42,23 +42,28 @@
 <td>
   <div class="box-tools pull-right">
     <serviceactionbutton service="ctrl.service"
-                         name="start"
+                         action-name="start"
+                         action-description="Start service"
                          icon-css-class="fa-play"
                          ng-if="ctrl.type == 3"></serviceactionbutton>
     <serviceactionbutton service="ctrl.service"
-                         name="stop"
+                         action-name="stop"
+                         action-description="Stop service"
                          icon-css-class="fa-stop"
                          ng-if="ctrl.type == 3"></serviceactionbutton>
     <serviceactionbutton service="ctrl.service"
-                         name="restart"
+                         action-name="restart"
+                         action-description="Restart service"
                          icon-css-class="fa-refresh"
                          ng-if="ctrl.type == 3"></serviceactionbutton>
     <serviceactionbutton service="ctrl.service"
-                         name="monitor"
+                         action-name="monitor"
+                         action-description="Enable monitoring"
                          icon-css-class="fa-power-off"
                          ng-if="ctrl.service.status.monitor == 0"></serviceactionbutton>
     <serviceactionbutton service="ctrl.service"
-                         name="unmonitor"
+                         action-name="unmonitor"
+                         action-description="Disable monitoring"
                          icon-css-class="fa-power-off"
                          ng-if="ctrl.service.status.monitor == 1"></serviceactionbutton>
   </div>
