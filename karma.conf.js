@@ -4,7 +4,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: './public/',
+    basePath: './lib/client/',
 
 
     // frameworks to use
@@ -38,11 +38,11 @@ module.exports = function(config) {
         paths: {
           "github:*": "jspm_packages/github/*",
           "npm:*": "jspm_packages/npm/*",
-          'es6-module-loader': '../node_modules/es6-module-loader/dist/es6-module-loader.js',
-          'systemjs': '../node_modules/systemjs/dist/system.js',
-          'system-polyfills': '../node_modules/systemjs/dist/system-polyfills.js',
-          'babel': '../node_modules/babel-core/browser.js',
-          'phantomjs-polyfill': '../node_modules/phantomjs-polyfill/bind-polyfill.js'
+          'es6-module-loader': '../../node_modules/es6-module-loader/dist/es6-module-loader.js',
+          'systemjs': '../../node_modules/systemjs/dist/system.js',
+          'system-polyfills': '../../node_modules/systemjs/dist/system-polyfills.js',
+          'babel': '../../node_modules/babel-core/browser.js',
+          'phantomjs-polyfill': '../../node_modules/phantomjs-polyfill/bind-polyfill.js'
         }
       },
 
@@ -63,7 +63,7 @@ module.exports = function(config) {
     },
 
     coverageReporter: {
-      dir : '../coverage/',
+      dir : '../../coverage/',
       instrumenters: { isparta : require('isparta') },
       instrumenter: {
         '**/*.js': 'isparta'

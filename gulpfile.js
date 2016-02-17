@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 gulp.task('copy', function() {
   var src = './layout/monithub/_site/css/*.css';
   gulp.src(src)
-    .pipe(gulp.dest('./public/css'));
+    .pipe(gulp.dest('./lib/client/css'));
 });
 
 gulp.task('express', function() {

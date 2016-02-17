@@ -22,7 +22,7 @@
     "istanbul": "^0.4.2",
     "istanbul-combine": "^0.3.0",
     "jspm": "^0.16.22",
-    "karma": "^0.13.19",
+    "karma": "^0.13.21",
     "karma-coverage": "^0.5.2",
     "karma-jasmine": "^0.3.6",
     "karma-junit-reporter": "^0.3.8",
@@ -43,8 +43,8 @@
   },
   "scripts": {
     "start": "node index",
-    "test": "mocha spec --recursive",
-    "test-coverage": "istanbul cover -x '**/spec/**' _mocha spec/**/*.js --recursive",
+    "test": "mocha lib/spec --recursive",
+    "test-coverage": "istanbul cover -x '**/spec/**' _mocha lib/spec/**/*.js --recursive",
     "coverage": "istanbul-combine -d coverage -p summary -r lcov -r html coverage/coverage.json coverage/coverage-karma.json"
   },
   "repository": {
@@ -59,7 +59,7 @@
   "homepage": "https://gitlab.com/adonescunha/monithub#README",
   "jspm": {
     "directories": {
-      "baseURL": "public"
+      "baseURL": "lib/client"
     },
     "dependencies": {
       "almasaeed2010/AdminLTE": "github:almasaeed2010/AdminLTE@^2.3.2",
