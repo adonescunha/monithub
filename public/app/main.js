@@ -3,6 +3,7 @@ import './vendor';
 import NavigationModule from './navigation/navigation.module';
 import ServicesListModule from './serviceslist/serviceslist.module';
 import ServicesListItemModule from './serviceslistitem/serviceslistitem.module';
+import ServiceActionButtonModule from './serviceactionbutton/serviceactionbutton.module';
 import ServiceStatusClassModule from './service-status-class/service-status-class.module';
 import ServerStatusClassModule from './server-status-class/server-status-class.module';
 import ServerDetailModule from './serverdetail/serverdetail.module';
@@ -20,6 +21,7 @@ export default angular.module('app', [
   NavigationModule.name,
   ServicesListModule.name,
   ServicesListItemModule.name,
+  ServiceActionButtonModule.name,
   ServiceStatusClassModule.name,
   ServerStatusClassModule.name,
   ServerDetailModule.name,

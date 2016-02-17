@@ -30,6 +30,7 @@ describe('Servers', () => {
       servers.get(hostname)
         .then((actual) => {
           expect(actual.hostname).toBe(server.hostname);
+          expect(servers.current.hostname).toBe(server.hostname);
           done();
         })
         .catch((err) => {

@@ -2,11 +2,14 @@ class Servers {
 
   constructor($http) {
     this.$http = $http;
+    this.current = null;
   }
 
   get(hostname) {
+    var self = this;
     return this.$http.get('/server/' + hostname)
       .then((response) => {
+        self.current = response.data;
         return response.data;
       });
   }
