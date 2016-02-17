@@ -5,6 +5,9 @@ MonitHub is a simple dashboard to manage multiple monit instances, built on top 
 
 ## Installation
 
+
+### Development Installation
+
 Clone
 
 ```bash
@@ -29,6 +32,30 @@ Start
 ```bash
 npm start --production
 ```
+### Install MonitHub as an npm module
+
+1. Include MonitHub as a dependency in your `package.json` file:
+```json
+"dependencies": {
+  "monithub": "0.1.0"
+}
+```
+
+2. Run `npm install` to install MonitHub.
+
+3. Include the MonitHub module where desired and then invoke it to get a promise for a `Server` object:
+```javascript
+var monithub = require('monithub');
+monithub()
+  .then(function(server) {
+    server.start();
+  })
+  .catch(function(err) {
+    throw err;
+  });
+```
+
+This interface is mostly inspired by the [Ghost](https://github.com/TryGhost/Ghost/wiki/Using-Ghost-as-an-npm-module) API for using as an npm module.
 
 ## Usage
 
@@ -38,13 +65,13 @@ Any feedback, suggestions or patches are welcome via [e-mail](mailto:adonescunha
 
 ### Testing
 
-Frontend:
+Client:
 
 ```bash
 karma start --single-run
 ```
 
-Backend:
+Server:
 
 ```bash
 npm test
