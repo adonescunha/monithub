@@ -3,6 +3,9 @@
      service-status-class="ctrl.service"></i>
 </td>
 <td>{{ctrl.service.name}}</td>
+<td>
+  <servicestatus service="ctrl.service"></service>
+</td>
 <td ng-if="ctrl.type == 3">
   {{ctrl.status.uptime | amDurationFormat:'seconds'}}
 </td>
