@@ -9,6 +9,19 @@
       body.skin-blue {
         background-color: #ecf0f5;
       }
+
+      .fa.loading {
+        position: fixed;
+        font-size: 120px;
+        margin: auto;
+        height: 1em;
+        width: 1em;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        color: #3c8dbc;
+      }
     </style>
   </head>
   <body class="skin-blue sidebar-collapse">
@@ -16,7 +29,9 @@
       <navigation></navigation>
       <div class="content-wrapper">
         <section class="content">
-          <div class="col-lg-9 col-xs-12 pull-right" ui-view></div>
+          <div class="col-lg-9 col-xs-12 pull-right" ui-view>
+            <i class="fa fa-circle-thin loading faa-burst animated"></i>
+          </div>
           <div class="col-lg-3 col-xs-12 pull-left">
             <serverslist></serverslist>
           </div>
