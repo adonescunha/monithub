@@ -1,3 +1,4 @@
+config.js
 lib/client/bower_components/
 lib/client/jspm_packages/
 node_modules
