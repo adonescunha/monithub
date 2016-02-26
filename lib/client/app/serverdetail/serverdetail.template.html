@@ -5,6 +5,10 @@
       <h3 class="box-title">{{ctrl.server.hostname}}</h3>
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool"
+                ng-click="ctrl.delete()">
+          <i class="fa fa-remove"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool"
                 ng-click="ctrl.sync()">
           <i class="fa fa-refresh"></i>
         </button>

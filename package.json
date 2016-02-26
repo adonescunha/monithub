@@ -67,6 +67,7 @@
       "angular-mocks": "github:angular/bower-angular-mocks@^1.4.8",
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.17",
       "angular/bower-angular-cookies": "github:angular/bower-angular-cookies@^1.5.0",
+      "bluebird": "npm:bluebird@^3.3.3",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "eu81273/angular.snackbar": "github:eu81273/angular.snackbar@master",
