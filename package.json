@@ -33,6 +33,7 @@
     "mocha-mongoose": "^1.1.1",
     "mongodb": "^2.1.4",
     "mongoose": "^4.3.6",
+    "multiline": "^1.0.2",
     "nock": "^5.2.1",
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
