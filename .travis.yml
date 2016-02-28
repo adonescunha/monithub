@@ -8,6 +8,8 @@ node_js:
   - 0.12
   - 0.10
 sudo: false
+services:
+  - redis-server
 
 script: "npm run test-coverage && karma start --single-run"
 
