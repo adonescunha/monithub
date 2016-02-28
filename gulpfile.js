@@ -2,17 +2,11 @@ var gulp = require('gulp'),
     useref = require('gulp-useref'),
     karma = require('karma').server;
 
-gulp.task('copy', function() {
-  var src = './layout/monithub/_site/css/*.css';
-  gulp.src(src)
-    .pipe(gulp.dest('./lib/client/css'));
-});
-
 gulp.task('express', function() {
   require('./index');
 });
 
-gulp.task('test', ['copy'], function(done) {
+gulp.task('test', [], function(done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
