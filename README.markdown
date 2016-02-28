@@ -37,7 +37,7 @@ npm start --production
 1. Include MonitHub as a dependency in your `package.json` file:
 ```json
 "dependencies": {
-  "monithub": "0.1.0"
+     "monithub": "0.1.0"
 }
 ```
 
@@ -47,12 +47,12 @@ npm start --production
 ```javascript
 var monithub = require('monithub');
 monithub()
-  .then(function(server) {
-    server.start();
-  })
-  .catch(function(err) {
-    throw err;
-  });
+     .then(function(server) {
+       server.start();
+     })
+     .catch(function(err) {
+       throw err;
+     });
 ```
 
 This interface is mostly inspired by the [Ghost](https://github.com/TryGhost/Ghost/wiki/Using-Ghost-as-an-npm-module) API for using as an npm module.
