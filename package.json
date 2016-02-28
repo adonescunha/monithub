@@ -21,6 +21,7 @@
     "isparta": "^3.0.4",
     "istanbul": "^0.4.2",
     "istanbul-combine": "^0.3.0",
+    "jasmine-core": "^2.4.1",
     "jspm": "^0.16.22",
     "karma": "^0.13.21",
     "karma-coverage": "^0.5.2",
