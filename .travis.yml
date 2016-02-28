@@ -9,6 +9,7 @@ node_js:
   - 0.10
 sudo: false
 services:
+  - mongodb
   - redis-server
 
 script: "npm run test-coverage && karma start --single-run"
